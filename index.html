@@ -1,0 +1,1457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Wukong Guide">
+<meta name="theme-color" content="#100E0B">
+<meta name="description" content="Chronological platinum roadmap and completionist checklist for Black Myth: Wukong (PS5). Progress stays on your device.">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Destined One’s Ledger — Black Myth: Wukong Platinum</title>
+<style>
+/* ————— INK & PARCHMENT —————
+   Ink (dark) is the default; Parchment (light) follows the device unless a theme
+   is picked in Settings ([data-theme] beats the media query).
+   Content accents colour GAME CONTENT (tags); interface chrome uses gold. */
+:root{
+  --bg:#100E0B; --panel:#191612; --panel2:#201C16; --line:#332C21; --line2:#26211A;
+  --text:#E4DAC6; --bright:#F6EDDA; --muted:#A99A7D; --dim:#7D6F58; --faint:#4A4134;
+  --gold:#D4A94E; --gold-soft:color-mix(in srgb, var(--gold) 16%, transparent); --on-gold:#1A1408;
+  --miss:#E0634B; --warn:#E89448; --story:#93ABCB; --quest:#CDAE62; --safe:#86A97E; --rule:#B9A27A;
+  --seal:#B8382A; --seal-ink:#F8EBD8;
+  --shadow:0 1px 0 rgba(0,0,0,.35);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --cjk:"Kaiti SC","STKaiti","Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme]){
+    --bg:#F3ECDF; --panel:#FBF7EF; --panel2:#F7F1E6; --line:#D9CDB6; --line2:#E7DDCB;
+    --text:#2B2219; --bright:#16100A; --muted:#6F604A; --dim:#9A8A70; --faint:#CFC2AA;
+    --gold:#94690F; --on-gold:#FFF8EA;
+    --miss:#B3301C; --warn:#B25A10; --story:#365A86; --quest:#86610E; --safe:#3D6B37; --rule:#7A6440;
+    --seal:#B3301C; --seal-ink:#FFF6E8; --shadow:0 1px 0 rgba(80,60,30,.08);
+    color-scheme:light;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#100E0B; --panel:#191612; --panel2:#201C16; --line:#332C21; --line2:#26211A;
+  --text:#E4DAC6; --bright:#F6EDDA; --muted:#A99A7D; --dim:#7D6F58; --faint:#4A4134;
+  --gold:#D4A94E; --on-gold:#1A1408;
+  --miss:#E0634B; --warn:#E89448; --story:#93ABCB; --quest:#CDAE62; --safe:#86A97E; --rule:#B9A27A;
+  --seal:#B8382A; --seal-ink:#F8EBD8; --shadow:0 1px 0 rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F3ECDF; --panel:#FBF7EF; --panel2:#F7F1E6; --line:#D9CDB6; --line2:#E7DDCB;
+  --text:#2B2219; --bright:#16100A; --muted:#6F604A; --dim:#9A8A70; --faint:#CFC2AA;
+  --gold:#94690F; --on-gold:#FFF8EA;
+  --miss:#B3301C; --warn:#B25A10; --story:#365A86; --quest:#86610E; --safe:#3D6B37; --rule:#7A6440;
+  --seal:#B3301C; --seal-ink:#FFF6E8; --shadow:0 1px 0 rgba(80,60,30,.08);
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 var(--sans);
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:var(--gold)}
+b{color:var(--bright);font-weight:600}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px calc(48px + env(safe-area-inset-bottom))}
+
+/* ——— header ——— */
+header{position:relative;padding:calc(18px + env(safe-area-inset-top)) 0 14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+header::before{content:"";position:absolute;inset:0 -16px;pointer-events:none;opacity:.55;
+  background:var(--clouds) right 36px top calc(4px + env(safe-area-inset-top))/260px auto no-repeat}
+.kicker{padding-right:52px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.titleRow{padding-right:40px;display:flex;align-items:center;gap:14px;margin:10px 0 12px}
+.seal{flex:none;width:46px;height:46px;border-radius:7px;background:var(--seal);color:var(--seal-ink);
+  display:grid;place-items:center;font:700 30px/1 var(--cjk);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--seal-ink) 22%,transparent)}
+h1{margin:0;font:600 clamp(25px,6vw,34px)/1.1 var(--serif);letter-spacing:.02em;color:var(--bright)}
+h1 small{display:block;font:400 13px/1.4 var(--sans);letter-spacing:.04em;color:var(--muted);margin-top:4px}
+.gear{position:absolute;right:0;top:calc(12px + env(safe-area-inset-top));width:40px;height:40px;border-radius:10px;
+  display:grid;place-items:center;color:var(--muted);border:1px solid var(--line);background:var(--panel)}
+.gear.on{color:var(--gold);border-color:var(--gold)}
+.readout{display:flex;align-items:baseline;gap:10px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.readout strong{font:600 22px/1 var(--serif);letter-spacing:.02em;color:var(--bright)}
+.bar{height:6px;border-radius:3px;background:var(--line2);overflow:hidden;margin:8px 0 8px}
+.bar>div{height:100%;background:linear-gradient(90deg,var(--seal),var(--gold));border-radius:3px;transition:width .3s}
+.stats{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted)}
+.stats span b{font-weight:600}
+.saved{color:var(--safe)}
+
+/* ——— cards / settings ——— */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 16px}
+.card h2{margin:2px 0 8px;font:600 20px/1.25 var(--serif);color:var(--bright)}
+.card p{margin:0 0 10px;color:var(--text)}
+.card .lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:8px 16px;border-radius:9px;border:1px solid var(--gold);color:var(--gold);font-weight:600;font-size:15px}
+.btn.solid{background:var(--gold);color:var(--on-gold)}
+.btn.danger{border-color:var(--miss);color:var(--miss)}
+.btn.danger.armed{background:var(--miss);color:#fff}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.seg button{padding:8px 14px;font-size:14px;color:var(--muted);min-height:38px}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--gold-soft);color:var(--gold);font-weight:600}
+.setrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 14px}
+.setnote{font-size:13px;color:var(--muted);margin:-6px 0 14px}
+
+/* ——— tabs & toolbar ——— */
+.tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);margin:4px 0 12px;position:sticky;top:0;z-index:5;
+  background:var(--bg);padding-top:env(safe-area-inset-top)}
+.tabs button{padding:12px 4px 11px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button.on{color:var(--gold);border-bottom-color:var(--gold)}
+.lede{color:var(--muted);font-size:14px;margin:0 0 12px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+.chip{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-size:13px;background:var(--panel)}
+.chip.on{border-color:var(--gold);color:var(--gold);background:var(--gold-soft)}
+.chip .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor}
+.chip.on .dot{background:currentColor}
+.search{flex:1 1 200px;min-width:0;min-height:38px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit;font-size:15px}
+.search::placeholder{color:var(--dim)}
+.jump{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin:0 0 14px;scrollbar-width:none}
+.jump::-webkit-scrollbar{display:none}
+.jump button{flex:none;padding:6px 11px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;color:var(--muted);background:var(--panel);white-space:nowrap}
+.jump button .n{color:var(--dim);margin-left:4px}
+.jump button.full{border-color:color-mix(in srgb,var(--safe) 50%,var(--line));color:var(--safe)}
+
+/* ——— next up ——— */
+.next{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--panel);border:1px solid var(--gold);border-radius:12px;padding:12px 14px;margin:0 0 16px}
+.next .lab{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.next .t{color:var(--bright);font-weight:600}
+.next .s{font-size:13px;color:var(--muted)}
+.next .go{margin-left:auto;flex:none;color:var(--gold);font-size:20px}
+
+/* ——— sections ——— */
+section{margin:0 0 22px;scroll-margin-top:60px}
+.sechead{display:flex;align-items:flex-end;gap:10px;width:100%;text-align:left;padding:4px 0 8px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.sechead .k{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.sechead h3{margin:2px 0 0;font:600 19px/1.25 var(--serif);color:var(--bright)}
+.sechead .caret{display:inline-block;width:14px;color:var(--dim);transition:transform .2s;font-size:12px}
+.sechead.closed .caret{transform:rotate(-90deg)}
+.sechead .cnt{margin-left:auto;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;padding-bottom:2px}
+.sechead .cnt.full{color:var(--safe)}
+.sechead .tro{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--gold);letter-spacing:.04em;margin-top:2px}
+.sechead .tro svg{width:13px;height:13px;flex:none}
+.intro{font-size:14px;color:var(--muted);margin:8px 0 6px}
+.ponr{margin:10px 0 8px;padding:10px 12px;border-radius:9px;font-size:14px;line-height:1.45;
+  color:var(--miss);background:color-mix(in srgb,var(--miss) 9%,transparent);border:1px solid color-mix(in srgb,var(--miss) 35%,transparent)}
+.ponr b{color:inherit}
+.note{font-size:13px;color:var(--muted);margin:8px 0 4px}
+
+/* ——— rows ——— */
+.row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--line2)}
+.row:last-child{border-bottom:0}
+.cb{flex:none;width:28px;height:28px;border-radius:7px;border:1.5px solid var(--faint);display:grid;place-items:center;margin-top:-2px;color:transparent;transition:background .15s,border-color .15s}
+.cb svg{width:16px;height:16px}
+.row.done .cb{background:var(--gold);border-color:var(--gold);color:var(--on-gold)}
+.main{flex:1;min-width:0}
+.line1{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;width:100%;text-align:left}
+.ttl{color:var(--bright);font-weight:550}
+.row.done .ttl{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--faint)}
+.loc{font-size:12.5px;color:var(--dim)}
+.tag{flex:none;font-size:10px;font-weight:700;letter-spacing:.12em;padding:2px 6px 1px;border-radius:4px;border:1px solid currentColor;line-height:1.5;text-transform:uppercase;position:relative;top:-1px}
+.t-RULE{color:var(--rule)} .t-STORY{color:var(--story)} .t-MISSABLE{color:var(--miss)}
+.t-WARNING{color:var(--warn)} .t-QUEST{color:var(--quest)} .t-SAFE{color:var(--safe)}
+.t-M{color:var(--miss)} .t-N{color:var(--story)} .t-R{color:var(--warn)} .t-Q{color:var(--quest)} .t-S{color:var(--safe)} .t-D{color:var(--dim)} .t-C{color:var(--muted)}
+.row.done .tag{opacity:.55}
+.tr{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--gold)}
+.tr svg{width:13px;height:13px;flex:none}
+.exp{flex:none;width:30px;height:30px;margin:-4px -4px 0 0;border-radius:8px;color:var(--dim);font-size:20px;line-height:30px;text-align:center}
+.det{display:none;margin:8px 0 2px;font-size:14.5px;line-height:1.55;color:var(--text)}
+.row.open .det{display:block}
+.row.open .exp{color:var(--gold)}
+.det .also{display:block;margin-top:6px;font-size:12.5px;color:var(--dim)}
+.det .where{display:block;margin-bottom:4px;font-size:12.5px;color:var(--muted)}
+.row.warnrow .ttl{color:var(--warn)}
+.empty{color:var(--dim);font-size:14px;padding:10px 0}
+.foot{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim)}
+.hide{display:none!important}
+.flash{animation:flash 1.4s ease-out}
+@keyframes flash{0%{background:var(--gold-soft)}100%{background:transparent}}
+@media (min-width:700px){ .row{padding:11px 0} }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+// ————————————————————————————————————————————————————————————————
+// META — build stamp, chapter names, shrine order (PowerPyx “All Shrines”)
+// AREA_ORDER drives the “By chapter” lens: items sort by chapter, then by the
+// position of their area in this list (story order inside each chapter).
+// ————————————————————————————————————————————————————————————————
+const BUILD = "1.0";
+const COMPILED = "November 2026";
+
+const CHAPTERS = {
+  "A":"Deluxe Edition extras (not counted)",
+  "1":"Chapter 1 · Black Wind Mountain",
+  "2":"Chapter 2 · Yellow Wind Ridge",
+  "3":"Chapter 3 · The New West",
+  "4":"Chapter 4 · The Webbed Hollow",
+  "5":"Chapter 5 · Flaming Mountains",
+  "6":"Chapter 6 · Mount Huaguo",
+  "S":"After the story · Secret ending",
+  "N":"New Game+"
+};
+const CHAPTER_ORDER = ["1","2","3","4","5","6","S","N","A"];
+
+const AREA_ORDER = [
+"Starting item","Prologue",
+// Ch1
+"Forest of Wolves > Front Hills","Forest of Wolves > Outside the Forest","Forest of Wolves > Guanyin Temple",
+"Bamboo Grove > Back Hills","Bamboo Grove > Snake Trail","Bamboo Grove > Marsh of White Mist",
+"Black Wind Cave > Cave Interior","Black Wind Cave > Outside the Cave","Black Wind Cave > Bodhi Peak",
+"Ancient Guanyin Temple > Grand Chamber","Shop (Ch1 shrines)",
+// Ch2
+"Sandgate Village > Village Entrance","Sandgate Village > Bottom of the Well","Sandgate Village > Valley of Despair",
+"Fright Cliff > Squall Hideout","Fright Cliff > Rockrest Flat","Fright Cliff > Rock Clash Platform",
+"Crouching Tiger Temple > Temple Entrance",
+"Yellow Wind Formation > Windrest Bridge","Yellow Wind Formation > Windrest Hamlet","Yellow Wind Formation > Windseal Gate",
+"Crouching Tiger Temple > Cellar",
+"Kingdom of Sahi > Sandgate Pass","Kingdom of Sahi > Sandgate Bound",
+// Ch3
+"Snowhill Path > Frost-Clad Path","Snowhill Path > Mirrormere",
+"Pagoda Realm > Lower Pagoda","Pagoda Realm > Upper Pagoda","Pagoda Realm > Mani Wheel","Pagoda Realm > Outside the Wheel",
+"Pagoda Realm > Snow-Veiled Trail","Pagoda Realm > The Great Pagoda","Pagoda Realm > Warding Temple",
+"Bitter Lake > South Shore of the Bitter Lake","Bitter Lake > Turtle Island","Bitter Lake > North Shore of the Bitter Lake","Bitter Lake > Precept Corridor",
+"Zodiac Village",
+"Valley of Ecstasy > Mindfulness Cliff","Valley of Ecstasy > Forest of Felicity","Valley of Ecstasy > Melon Field",
+"Valley of Ecstasy > Brook of Bliss","Valley of Ecstasy > Towers of Karma","Valley of Ecstasy > Longevity Road","Valley of Ecstasy",
+"New Thunderclap Temple > Temple Entrance","New Thunderclap Temple > Mahavira Hall",
+// Ch4
+"Village of Lanxi > Estate of the Zhu",
+"Webbed Hollow > Upper Hollow","Webbed Hollow > Pool of Shattered Jade","Webbed Hollow > The Verdure Bridge","Webbed Hollow > Middle Hollow",
+"Webbed Hollow > Bonevault","Webbed Hollow > Cliff of Oblivion","Webbed Hollow > Relief of the Fallen Loong","Webbed Hollow > Lower Hollow",
+"Webbed Hollow > Hut of Immortality","Webbed Hollow > The Purifying Spring","Webbed Hollow > The Gathering Cave",
+"Temple of the Yellow Flower > Mountain Trail","Temple of the Yellow Flower > Forest of Ferocity",
+"Temple of the Yellow Flower > Temple Entrance","Temple of the Yellow Flower > Court of Illumination",
+"Purple Cloud Mountain > Valley of Blooms","Purple Cloud Mountain > Bounds of Deity’s Abode","Purple Cloud Mountain > Petalfall Hamlet","Purple Cloud Mountain > Cloudnest Peak",
+// Ch5
+"Woods of Ember > Ashen Pass I","Woods of Ember > Camp of Seasons","Woods of Ember > Height of Ember","Woods of Ember > Ashen Pass II",
+"Furnace Valley > Valley Entrance","Furnace Valley > Rakshasa Palace","Furnace Valley > The Emerald Hall",
+"Field of Fire > Ashen Pass III","Field of Fire > Cooling Slope","Field of Fire > Fallen Furnace Crater",
+"Bishui Cave > Purge Pit","Bishui Cave > Cave Depths","Bishui Cave > Corridor of Fire and Ice",
+// Ch6
+"Foothills","Foothills > Verdant Path","Foothills > Rhino Watch Slope","Foothills > Deer Sight Forest","Foothills > Mantis-Catching Swamp",
+"Water Curtain Cave","Birthstone > Heart of Birthstone",
+// shops / misc
+"Shop (Shen Monkey)","Shop (Xu Dog)","New Game+","Any shrine"
+];
+
+// ————————————————————————————————————————————————————————————————
+// DESTINED ONE'S LEDGER — CAMPAIGN DATA (chronological roadmap)
+// Compiled Nov 2026 from PowerPyx (trophy roadmap + sub-guides) and the
+// PSNProfiles Black Myth: Wukong trophy guide. Cross-checked between both;
+// where they disagree the safer instruction is used and the row says so.
+//
+// tag:  RULE · STORY · MISSABLE · WARNING · QUEST · SAFE
+// tr:   trophy that pops on (or because of) this row
+// links: ledger ids that this row also ticks (shared progress with the
+//        Completionist tab — ticking the row ticks them too)
+// ————————————————————————————————————————————————————————————————
+
+const CAMPAIGN = [
+{ id:"orders", kicker:"READ FIRST", title:"Standing Orders",
+  intro:"Rules for the whole run. Tick each once you’ve taken it on board.",
+  rows:[
+  {id:"r1", tag:"RULE", t:"Update the game to the latest patch", d:"Patch 1.0.8 moved at least one collectible (Maitreya’s Orb). This guide uses the post-patch locations."},
+  {id:"r2", tag:"RULE", t:"Defeat one of every enemy type you meet", d:"Seeing an enemy only sketches its Journal page — Portraits Perfected needs every Lesser Yaoguai actually <b>defeated</b> once. Glowing-green enemies also drop Spirits."},
+  {id:"r3", tag:"RULE", t:"Exhaust every NPC’s dialogue", d:"Talk until they repeat the same line. Above all the <b>Old Man</b> and the <b>Horse</b> — both are chains that need you to meet them in <i>every</i> chapter before you move on."},
+  {id:"r4", tag:"RULE", t:"Clear each chapter before its final boss", d:"You can fast-travel back to any chapter from any Keeper’s Shrine, so most things are safe. The exceptions are flagged <b>MISSABLE</b> below — do those before the point of no return written at the top of each chapter."},
+  {id:"r5", tag:"RULE", t:"Harvest every plant and smash every cocoon as you go", d:"Seeds, several Curios, Soaks and armor pieces are random drops. Picking them up along the way saves hours of farming at the end."},
+  {id:"r6", tag:"RULE", t:"Feed your first 9 Luojia Fragrant Vines into the starting Gourd", d:"The starting (Old) Gourd must reach 9 sips before the Old Man in Chapter 5 can turn it into the Supreme Gourd (Always Accompanied). 15 vines exist; 12 are enough for everything. Upgrade at Shen Monkey."},
+  {id:"r7", tag:"RULE", t:"After the credits, always pick “Continue Journey”", d:"“Enter a New Cycle” starts New Game+ and overwrites your only save — there is no way back to free roam. Only do it in the New Game+ phase at the bottom of this list."},
+  {id:"r8", tag:"RULE", t:"One autosave, no manual saves — back up to PS Plus", d:"Upload your save to PS Plus cloud before risky moments (last item of a collectible set, starting NG+). Some collectible trophies have failed to pop for players; restoring a cloud save and picking up the last item again is the known fix."}
+]},
+
+{ id:"pro", kicker:"PROLOGUE", title:"Prologue",
+  rows:[
+  {id:"c0a", tag:"STORY", t:"Erlang, the Sacred Divinity", loc:"Prologue", tr:"Home is Behind", d:"Tutorial fight — you can’t lose. The trophy pops during the cutscenes afterwards."}
+]},
+
+{ id:"ch1", kicker:"PHASE 01", title:"Chapter 1 · Black Wind Mountain",
+  warn:"POINT OF NO RETURN: defeating Black Bear Guai at Bodhi Peak ends Chapter 1. Meet the Horse and the Old Man first. Kill the Wandering Wight before you ring the third bell.",
+  rows:[
+  {id:"c1a", tag:"STORY", t:"Bullguard", loc:"Forest of Wolves > Front Hills", tr:"A Spark of Thought", links:["jc01"], d:"Gives the Immobilize spell mid-fight. Afterwards the game sends you to the skill tree — spend one Spark point for the trophy."},
+  {id:"c1o", tag:"QUEST", t:"Skandha of Form (1 of 4 for Ch6’s hidden giant)", loc:"Forest of Wolves > Front Hills", links:["sk1"], d:"From Front Hills go through the gate, drop into the river and follow it to the end; take the Skandha from the Buddha head by the monkey. Needed for Giant Shigandang in Chapter 6 (PSNProfiles) — you can also grab it later by fast-travelling back."},
+  {id:"c1b", tag:"QUEST", t:"Guangzhi + Bell 1 of 3", loc:"Forest of Wolves > Outside the Forest", links:["jc02","sl02"], d:"From the shrine take the left path, cross the wooden bridge and follow the torches to the arena. Reward: Red Tides transformation. The first of the three bells is behind him."},
+  {id:"c1c", tag:"MISSABLE", t:"Wandering Wight (spirit + Cat Eye Beads)", loc:"Forest of Wolves > Outside the Forest", links:["sp01","cu01"], d:"Big stone-headed boss straight ahead from the shrine. <b>He disappears for good once you beat Elder Jinchi</b> (Ch1 secret area) — he only comes back in NG+. His spirit also breaks the wall to the Loong Scales in Ch2. If you kill him before you get the Blessed Gourd, claim the spirit at any shrine later."},
+  {id:"c1d", tag:"STORY", t:"Lingxuzi", loc:"Forest of Wolves > Guanyin Temple", links:["jk01"], d:"Big white wolf. A Celestial Jade Lotus Pill sits in the next temple on the left afterwards."},
+  {id:"c1e", tag:"MISSABLE", t:"Horse NPC — meeting 1 of 5", loc:"Bamboo Grove > Back Hills", d:"From the shrine go down the stairs and take the left path to a cave. He sits at the side; meditation spot “The Cavern” is in the middle. Talk until he repeats. Chain for <b>Urge Unfulfilled</b> and the Dark Thunder spell."},
+  {id:"c1f", tag:"MISSABLE", t:"Old Man — meeting 1 of 5 (Blessed Gourd)", loc:"Bamboo Grove > Snake Trail", d:"Up the stairs from the shrine, on the right. He gives the Blessed Gourd (needed to absorb Spirits). Exhaust his dialogue. Chain for <b>Always Accompanied</b>."},
+  {id:"c1g", tag:"QUEST", t:"Guangmou + Bell 2 of 3", loc:"Bamboo Grove > Snake Trail", links:["jc03","sp03"], d:"Facing the shrine, jump down the cliffs on the left to the river, turn right past a snake into the bamboo, follow the paved path past two torches. The second bell is behind him."},
+  {id:"c1h", tag:"QUEST", t:"Frog 1 of 6 — Baw-Li-Guhh-Lang", loc:"Bamboo Grove > Snake Trail", links:["jc04","sp02"], d:"Same cliff jump to the lower river, then turn left and follow the river to its end."},
+  {id:"c1i", tag:"STORY", t:"Whiteclad Noble", loc:"Bamboo Grove > Marsh of White Mist", links:["jx01"], d:"Down the stairs from the shrine. Unlocks the Serpentscale armor recipes and the Twin Serpents Staff."},
+  {id:"c1j", tag:"QUEST", t:"Rescue Shen Monkey, use the Brew menu", loc:"Bamboo Grove > Marsh of White Mist", tr:"Brew of Bravery", links:["so01","jx26"], d:"Kill the next snake past the shrine, watch the cutscene, follow the monkey into his cave. Choose Brew → Soaks → Gall Gem (he gives it free). He also upgrades your Gourd with Luojia Vines."},
+  {id:"c1k", tag:"WARNING", t:"Wandering Wight dead? Only then ring Bell 3", d:"The third bell teleports you straight into the secret area, and beating Elder Jinchi removes the Wandering Wight."},
+  {id:"c1l", tag:"QUEST", t:"Bell 3 of 3 → Ancient Guanyin Temple", loc:"Bamboo Grove > Marsh of White Mist", d:"After Whiteclad Noble take the left path before the big cave. Ringing the last bell teleports you to the secret area."},
+  {id:"c1m", tag:"QUEST", t:"Elder Jinchi (secret boss)", loc:"Ancient Guanyin Temple > Grand Chamber", tr:"Temple of Taint", links:["jk03","ve01","ar60"], d:"Straight ahead from where you arrive. Afterwards interact with the body hanging from the tree in front of the third bell for the <b>Fireproof Mantle</b> (Vessel 1/4). Open the chest right of the Grand Chamber shrine for Guanyin’s Prayer Beads (armor)."},
+  {id:"c1n", tag:"STORY", t:"Black Wind King", loc:"Black Wind Cave > Cave Interior", links:["jk04","cu02"], d:"Gives Cloud Step. The Agate Jar curio is in a small chest on the left of the arena."},
+  {id:"c1p", tag:"STORY", t:"Black Bear Guai", loc:"Black Wind Cave > Bodhi Peak", tr:"Blazing Black Wind", links:["jk05","jx02"], d:"Ends Chapter 1."}
+]},
+
+{ id:"ch2", kicker:"PHASE 02", title:"Chapter 2 · Yellow Wind Ridge",
+  warn:"POINT OF NO RETURN: defeating Yellow Wind Sage in the Cellar ends Chapter 2. Meet the Horse and the Old Man first, and kill the small rat first in the Rat Prince fight.",
+  rows:[
+  {id:"c2a", tag:"QUEST", t:"Frog 2 of 6 — Lang-Li-Guhh-Baw, then Xu Dog", loc:"Sandgate Village > Village Entrance", tr:"Creative Concoction", links:["jc05","fo14","jx27"], d:"Left of the shrine, drop into the ravine and follow it to a flooded area. The frog drops the Evil Repelling Medicament formula — give it to Xu Dog at the top of the wooden stairs, then craft any medicine at a shrine (Make Medicines). Xu Dog moves on if you push the story too far, so do this early."},
+  {id:"c2b", tag:"QUEST", t:"Earth Wolf", loc:"Sandgate Village > Village Entrance", links:["jc06","sp06"], d:"Over the bridge, right into the village; breakable wall on the left under the roof with a Rat Archer."},
+  {id:"c2c", tag:"MISSABLE", t:"Horse NPC — meeting 2 of 5", loc:"Sandgate Village > Village Entrance", d:"After Earth Wolf, check the pagoda at the side of that meadow — he’s tied up there. Exhaust his dialogue."},
+  {id:"c2d", tag:"MISSABLE", t:"Second Rat Prince spirit — kill the SMALL rat first", loc:"Sandgate Village > Village Entrance", links:["jc07","sp07"], d:"Open the locked gate on the right of the courtyard. Kill <b>King of Flowing Sands (the small rat)</b> before the big Second Rat Prince, or the spirit is lost until NG+."},
+  {id:"c2e", tag:"QUEST", t:"First Prince of Flowing Sands + Loong Scales", loc:"Sandgate Village > Valley of Despair", links:["jc08"], d:"Enter the cave next to the shrine, run past the first two enemies, drop down the left side. In this arena is a wall made of small clay Buddha carvings — break it with the <b>Wandering Wight</b> spirit (hit the centre, then squeeze through with R2), or let the Prince charge into it, or use Azure Dust later. The golden chest behind holds the <b>Loong Scales</b> (needed for all four Loongs)."},
+  {id:"c2f", tag:"QUEST", t:"Loong 1 of 4 — Red Loong (back in Ch1)", loc:"Forest of Wolves > Outside the Forest", links:["jk02","cu04"], d:"With the Scales, fast-travel to Outside the Forest, take the left path to the waterfall in the corner and interact with it."},
+  {id:"c2g", tag:"QUEST", t:"Loong 2 of 4 — Black Loong", loc:"Fright Cliff > Rockrest Flat", links:["jk09","cu07"], d:"From the shrine turn right and go up the path to the sand waterfall; interact while holding the Scales."},
+  {id:"c2h", tag:"QUEST", t:"Man-in-Stone → Azure Dust", loc:"Fright Cliff > Squall Hideout", links:["jc09","jx03","sl06"], d:"Kill Mother of Stones (the 3 blue crystals on a rock at the end of the cave between Squall Hideout and Rockrest Flat) for the Stone Essence. Give it to the Man-in-Stone behind the black thorns at the end of the ravine right of the Squall Hideout shrine, beat him, then interact with his body. Afterwards he sells the Goldflora Hairpin (12,800) and Iron Pellet (6,480)."},
+  {id:"c2i", tag:"STORY", t:"Stone Vanguard", loc:"Fright Cliff > Rockrest Flat", links:["jk07"], d:"Left path from the shrine. Drops Sterness of Stone — opens the Tiger Vanguard arena statue route and unlocks the Galeguard armor."},
+  {id:"c2j", tag:"QUEST", t:"6 Buddha’s Eyeballs → Shigandang", loc:"Fright Cliff > Rockrest Flat", links:["jk08","sk2"], d:"Collect all six eyeballs around Fright Cliff (list in Completionist → Supporting lists), then interact with the big faced rock in the Stone Vanguard arena. Drops the Skandha of Feeling (2 of 4)."},
+  {id:"c2k", tag:"STORY", t:"Tiger Vanguard", loc:"Crouching Tiger Temple > Temple Entrance", links:["jk06"], d:"Straight up the stairs. Gives Rock Solid. Then use the arena statue (needs Sterness of Stone) to drain the pool and drop through the hatch: Civet Sergeant spirit, Headless Monk, A Pluck of Many, Tiger Relic soak and a Celestial Jade Lotus Pill are down there."},
+  {id:"c2l", tag:"QUEST", t:"Drunken Boar questline → Kingdom of Sahi", loc:"Fright Cliff > Rockrest Flat", links:["jx04"], d:"1) Talk to the drunk boar in the big meadow straight from the Rockrest Flat shrine. 2) Windrest Bridge: cross, go left through the houses, right into a courtyard — smash the golden keg for the <b>Sobering Stone</b>. 3) Give it to the boar, exhaust dialogue. 4) Temple Entrance: up the stairs, second path on the right — give the boar 1 <b>Jade Lotus</b> (shrine shop), exhaust. 5) Back at Rockrest Flat beat his brother Yellow-Robed Squire (Snout Mask), follow the boar to the big gate and enter."},
+  {id:"c2m", tag:"QUEST", t:"Kingdom of Sahi — Tiger Vanguard (secret) → Fuban", loc:"Kingdom of Sahi > Sandgate Bound", tr:"Shifting Sands", links:["jc13","jk10","ve02","cu08"], d:"Beat the secret Tiger Vanguard (Tiger Tally curio), then talk to the NPC on the cliff top in the desert to summon Fuban. Reward: <b>Wind Tamer</b> (Vessel 2/4) and a Sky-Piercing Horn."},
+  {id:"c2n", tag:"QUEST", t:"Old-Rattle Drum → Mad Tiger (Plaguebane Gourd)", loc:"Yellow Wind Formation > Windrest Hamlet", links:["jc10","jc12","sp14","sp16","go03"], d:"Beat Tiger’s Acolyte on the bridge after the Windrest Hamlet shrine for the drum. Use it where the screen turns grey: Windseal Gate (left of the shrine, after a bridge), Windrest Hamlet (downstairs, through the gate, side of the village), and the corner of the Earth Wolf meadow in Sandgate Village. Jump into the well; the Plaguebane Gourd is in the black chest behind the arena."},
+  {id:"c2o", tag:"MISSABLE", t:"Old Man — meeting 2 of 5", loc:"Crouching Tiger Temple > Cellar", d:"From the shrine go down the sandy path, turn right, walk to the end — he’s looking at the rocks by meditation spot “The Grotto”. Exhaust his dialogue."},
+  {id:"c2p", tag:"STORY", t:"Yellow Wind Sage", loc:"Crouching Tiger Temple > Cellar", tr:"A Great Gust", links:["jk11"], d:"Slide down the sand and go left into the tornado. Ends Chapter 2."}
+]},
+
+{ id:"ch3", kicker:"PHASE 03", title:"Chapter 3 · The New West",
+  warn:"POINTS OF NO RETURN: (1) Captain Wise-Voice — kill all 9 Lantern Wardens first. (2) Zhu Bajie leaving your party — beat the Apramana Bat on your first visit to North Shore. (3) Yellowbrow at Mahavira Hall ends the chapter — meet the Horse first.",
+  rows:[
+  {id:"c3a", tag:"STORY", t:"Macaque Chief + Kang-Jin Loong", loc:"Snowhill Path > Mirrormere", links:["jk12"], d:"Story fights on the way in. Kang-Jin Loong is in the house on the frozen lake."},
+  {id:"c3b", tag:"MISSABLE", t:"All 9 Lantern Wardens → Auspicious Lantern", loc:"Pagoda Realm > Lower Pagoda", links:["jl42","cu10"], d:"Skeletons with a lamp on the spine that wander the prison (lower and upper floors) when your eyes glow red and the screen greys. The 9th kill drops the Auspicious Lantern. <b>They vanish once Captain Wise-Voice dies.</b>"},
+  {id:"c3c", tag:"QUEST", t:"Captain Lotus-Vision (hidden)", loc:"Pagoda Realm > Upper Pagoda", links:["jc14","cu12"], d:"Drop off the cliff directly across from the shrine into a cell. Drops Frostsprout Twig and his Captain spirit (for the prisoner). Beating him unseals the purple-sealed cells — Enslaved Yaksha spirit is behind one."},
+  {id:"c3d", tag:"WARNING", t:"STOP: 9 Lantern Wardens done before Captain Wise-Voice?", d:"Wise-Voice is right after the Mani Wheel shrine on the main path."},
+  {id:"c3e", tag:"STORY", t:"Captain Wise-Voice", loc:"Pagoda Realm > Mani Wheel", links:["jk14"], d:"Drops his Captain spirit for the prisoner quest."},
+  {id:"c3f", tag:"STORY", t:"Old Man — meeting 3 of 5 (Ring of Fire)", loc:"Pagoda Realm > Warding Temple", links:["sl08"], d:"Up the stairs into the courtyard to fight Macaque Chief again; the Old Man appears in the cutscene and gives Ring of Fire. Story-forced, can’t miss."},
+  {id:"c3g", tag:"QUEST", t:"Kang-Jin Star", loc:"Pagoda Realm > Warding Temple", links:["jk13"], d:"Follow the path until you slide down a snowy slope. Unlocks the Loongscale armor."},
+  {id:"c3h", tag:"QUEST", t:"Loong 3 of 4 — Cyan Loong", loc:"Bitter Lake > Turtle Island", links:["jk15","so12"], d:"Right of the shrine, at the back-right corner of the island: a small dragon statue at the edge. Spawns only if you carry the Loong Scales."},
+  {id:"c3i", tag:"MISSABLE", t:"Apramana Bat — first visit, before moving on", loc:"Bitter Lake > North Shore of the Bitter Lake", links:["jc17","sp22"], d:"Follow the coastline from the shrine to its end. <b>Do it on your first visit</b> — it disappears once Zhu Bajie (the little boar) leaves your party later in the chapter. Its spirit appears in your inventory at the start of Ch4."},
+  {id:"c3j", tag:"QUEST", t:"Turtle General + Turtle Tear", loc:"Bitter Lake > North Shore of the Bitter Lake", links:["jx07","so13"], d:"Right after the Bat, interact with the big skeleton on the left (cutscene), then walk back up the coast and pick up the green tear below the turtle’s head."},
+  {id:"c3k", tag:"QUEST", t:"Chen Loong quest → Zodiac Village", loc:"Bitter Lake > North Shore of the Bitter Lake", links:["jx25","fo13"], d:"Follow the coast to the end and walk into the water to fight the dragon Chen Loong. He asks for medicine: fast-travel to Xu Dog (Ch2 > Crouching Tiger Temple > Cellar) and keep choosing <b>Talk</b> until he hands over the Special-made Bone Strengthening Pellet. Deliver it to Chen Loong (now on the shore by a hut) — you’re teleported to Zodiac Village. Shen Monkey and Xu Dog move there."},
+  {id:"c3l", tag:"QUEST", t:"Plant seeds with Chen Loong", loc:"Zodiac Village", tr:"Happy Harvest", d:"Give him any seed, then come back after a boss fight or two and interact with the golden basket in front of him."},
+  {id:"c3m", tag:"QUEST", t:"Upgrade one armor piece at Yin Tiger", loc:"Zodiac Village", tr:"Pound and Perfect", links:["jx24","sl09"], d:"Blacksmith in the left corner: Craft → Upgrade Armor (cheapest piece is fine). Duel and beat him for the Ebon Flow transformation and a third Curio slot."},
+  {id:"c3n", tag:"QUEST", t:"Treasure Hunter quest → Spell Binder", loc:"Valley of Ecstasy > Melon Field", links:["jx09","sl10"], d:"1) North Shore: go right to a villa and save the man from 3 giant bats. 2) Towers of Karma: he’s freezing on a tree south-west of the shrine — cast Ring of Fire on him. 3) From Forest of Felicity follow the path by the red gate to a small lake, drop down its right side to the Melon Field shrine and cave: beat the Green-Capped Martialist. <b>Required for the secret ending.</b>"},
+  {id:"c3o", tag:"QUEST", t:"Prisoner quest (4 Captain spirits) → Ashen Slumber", loc:"Pagoda Realm > Lower Pagoda", links:["jx10","sl07","jc15","jc16"], d:"Spirits from Lotus-Vision, Wise-Voice, Kalpa-Wave (Longevity Road, red barrier) and Void-Illusion (Longevity Road — interact with the giant corpse right of the shrine). Bring all four to the prisoner in the second cell at Lower Pagoda: Ashen Slumber + Chubai Spearhead (Chu-Bai Spear)."},
+  {id:"c3p", tag:"QUEST", t:"Fox quest → Non-Void + Snow Fox Brush", loc:"Valley of Ecstasy > Forest of Felicity", links:["jc23","jx08","cu16","sp30"], d:"Talk to the dead fox by the Forest of Felicity gate (3 times) for the brush. At New Thunderclap Temple, in fox form, go to the upper temple to trigger Non-Void. Return to the fox afterwards to finish."},
+  {id:"c3q", tag:"QUEST", t:"Valley of Ecstasy hidden bosses", loc:"Valley of Ecstasy", links:["jc19","jc22","jc18","sd09","sd10","sp27","sp24"], d:"<b>Old Ginseng Guai</b> — Towers of Karma: left past the wall-facing monk to the corner altar, pull the plant. <b>Non-Able</b> — Brook of Bliss: up the slope right of the shrine. <b>Frog 3 of 6, Lang-Li-Guhh-Lang</b> — Forest of Felicity: turn around from the shrine, cave on the right."},
+  {id:"c3r", tag:"QUEST", t:"Skandha of Thought (3 of 4)", loc:"Valley of Ecstasy > Mindfulness Cliff", links:["sk3"], d:"In front of the shrine climb the fallen stone pillar, take all the stairs on the left, through the cave past a wooden chest, then up to the monkey (PSNProfiles)."},
+  {id:"c3s", tag:"QUEST", t:"Monk from the Sea → Hoarfrost; Non-Pure", loc:"New Thunderclap Temple > Temple Entrance", links:["jc24","sl11","jc21"], d:"Monk from the Sea: right path from the shrine, up to the courtyard, through the gate on the left — left corner. Non-Pure: past the two colossi, building on the right (meditation spot “The Hall” inside afterwards)."},
+  {id:"c3t", tag:"MISSABLE", t:"Horse NPC — meeting 3 of 5", loc:"New Thunderclap Temple > Temple Entrance", links:["fo08","go06"], d:"Forward through a temple building, up the stairs, down the left-side stairs, into the next building, up to the balcony and across the wooden bridge — he’s at the end. Exhaust dialogue. If you didn’t get the Trailblazer’s Scarlet Gourd as a pre-order/Deluxe bonus, he gives it to you here. The Body-Fleeting Powder formula is in the container next to him."},
+  {id:"c3u", tag:"STORY", t:"Yellowbrow (3 fights, no shrine between)", loc:"New Thunderclap Temple > Mahavira Hall", tr:"Nifty Nonsense", links:["jk16","sl12","jc25","jx11"], d:"The trophy pops after the second Yellowbrow encounter. Reward: Umbral Abyss. Ends Chapter 3."}
+]},
+
+{ id:"ch4", kicker:"PHASE 04", title:"Chapter 4 · The Webbed Hollow",
+  warn:"POINTS OF NO RETURN: (1) Entering Duskveil’s arena — beat the Scorpionlord and Daoist Mi first. (2) Hundred-Eyed Daoist Master ends the chapter — all 4 Purple Altars first. Break the Venom Daoist’s four arms before you kill him.",
+  rows:[
+  {id:"c4a", tag:"STORY", t:"The Second Sister", loc:"Village of Lanxi > Estate of the Zhu", links:["jc30"], d:"Through the next door after the shrine. Unlocks the Chitin Staff. The Celestial Jade Lotus Pill is on a back table in the next area."},
+  {id:"c4b", tag:"MISSABLE", t:"Venom Daoist #1 — break all 4 arms first", loc:"Webbed Hollow > Pool of Shattered Jade", links:["ar49"], d:"Right of the shrine, up the path to a big hanging cocoon — hit it until he comes out. Break all four arms <b>before</b> killing him for the <b>Venomous Armguard</b>: Immobilize him and hit from behind with light attacks (the Wind Tamer vessel helps). He then flees."},
+  {id:"c4c", tag:"QUEST", t:"Elder Amourworm → Proto Amourworm", loc:"Webbed Hollow > The Verdure Bridge", links:["jc32"], d:"Cross the green bridge, past the knife-throwing woman’s treasure room (Xiang River Goddess Gourd, Purple-Veined Peach Pit, Enhanced Ginseng Pellets formula). Boss is behind it. Deliver the Proto Amourworm to Chen Loong, then feed the worm 3 Rice Cocoons (random from white cocoons), resting between each — spirit appears after the third rest."},
+  {id:"c4d", tag:"MISSABLE", t:"Purple Altar 1 of 4", loc:"Webbed Hollow > The Verdure Bridge", d:"Left over the root bridge, left at the two lanterns, drop down the right side, up through the village to the purple altar at the top. Loot the letter after the cutscene."},
+  {id:"c4e", tag:"QUEST", t:"Horse NPC — meeting 4 of 5", loc:"Webbed Hollow > Bonevault", d:"Pops out of a spider cocoon on the main path toward Cliff of Oblivion (only if you met him in Ch1–3). Exhaust dialogue."},
+  {id:"c4f", tag:"MISSABLE", t:"Purple Altar 2 of 4", loc:"Webbed Hollow > Cliff of Oblivion", d:"Directly in front of the shrine."},
+  {id:"c4g", tag:"STORY", t:"Buddha’s Right Hand", loc:"Webbed Hollow > Cliff of Oblivion", links:["jc34"], d:"Glowing hand in the next corridor. Drops Buddha’s Right Hand (for the Immortal Blessing Gourd). The Celestial Taiyi Pill is up the left side after crossing the broken hand."},
+  {id:"c4h", tag:"MISSABLE", t:"Purple Altar 3 of 4 (hidden shrine)", loc:"Webbed Hollow > Relief of the Fallen Loong", d:"Cross the broken hand, drop down the left to a hanging bridge, then the narrow beam with slashing cocoons — Cloud Step past them (or clear them with Umbral Abyss). Hidden shrine at the end; enter the cave left of it, altar at the end before the drop."},
+  {id:"c4i", tag:"QUEST", t:"Loong 4 of 4 — Yellow Loong", loc:"Webbed Hollow > Relief of the Fallen Loong", tr:"The Sire and Sons", links:["jk18","sl14","cu22"], d:"Spawns right of the shrine once Red, Black and Cyan Loong are dead. Rewards Golden Lining and the Golden Carp curio."},
+  {id:"c4j", tag:"QUEST", t:"Frog 4 of 6 — Baw-Li-Guhh-Baw", loc:"Webbed Hollow > Lower Hollow", links:["jc35"], d:"Turn left into the tunnel, squeeze through the crack in the left wall (meditation spot “Cave Depths”), then the corridor to its left. Drops Buddha’s Left Hand."},
+  {id:"c4k", tag:"STORY", t:"Zhu Bajie (twice)", loc:"Webbed Hollow > Hut of Immortality", links:["jx12","cu23"], d:"Beat him twice in a row for the Jade Moon Rabbit curio. Unlocks the Non-Pure armor."},
+  {id:"c4l", tag:"QUEST", t:"Skandha of Choice (4 of 4)", loc:"Webbed Hollow > The Purifying Spring", links:["sk4"], d:"Through the crack, turn left and go to the end of the pool — take it by the monkey (PSNProfiles)."},
+  {id:"c4m", tag:"STORY", t:"Violet Spider", loc:"Webbed Hollow > The Gathering Cave", links:["jk17"], d:"Automatic story boss."},
+  {id:"c4n", tag:"MISSABLE", t:"Old Man — meeting 4 of 5", loc:"Temple of the Yellow Flower > Temple Entrance", d:"Straight into the temple, right through the gate (meditation spot “The Pines”, drunk enemies), up the stairs at the back. Exhaust dialogue. PowerPyx says he stays here after the story — don’t risk the chain anyway."},
+  {id:"c4o", tag:"QUEST", t:"Fungiwoman (hidden)", loc:"Temple of the Yellow Flower > Court of Illumination", links:["sp41","sd11","sd12"], d:"From the shrine take the stairs across, turn right at the split and pull the mushroom. Drops two seeds; the Sunset of the Nine Skies drink is by the hut behind her."},
+  {id:"c4p", tag:"MISSABLE", t:"Purple Altar 4 of 4 → Crane Immortal", loc:"Temple of the Yellow Flower > Court of Illumination", links:["jx14","pi12"], d:"Directly in front of the shrine; the invisible wall drops once the other three are done. The Supreme Inspector attacks — at about 15% of his health a cutscene with the Crane Immortal plays. Open the golden container for a Celestial Nonary Pill."},
+  {id:"c4q", tag:"QUEST", t:"Venom Daoist #2 → Purple Cloud Mountain", loc:"Temple of the Yellow Flower > Court of Illumination", links:["jx13"], d:"Turn around from the shrine, take the path opposite, go left at the split. Two full health bars. Then interact with the wall in front of you to enter the secret area."},
+  {id:"c4r", tag:"MISSABLE", t:"The Scorpionlord — before Duskveil", loc:"Purple Cloud Mountain > Bounds of Deity’s Abode", links:["jk19","go07"], d:"Scorpion drinking on a rooftop near the shrine — destroy the kegs below him. Drops the <b>Stained Jade Gourd</b> and a Sky-Piercing Horn. If you go to Duskveil first he’s gone. PSNProfiles: if he beats you too many times he may refuse to fight."},
+  {id:"c4s", tag:"MISSABLE", t:"Daoist Mi → Violet Hail — before Duskveil", loc:"Purple Cloud Mountain > Petalfall Hamlet", links:["jc37","sl13"], d:"Before the Valley of Blooms shrine talk to the red snake on a tree. At Petalfall Hamlet go up the stairs: masked Daoist Mi on the left. Kill the yellow-robed villagers on his right until one drops the <b>Violet Hail</b> item (random; rest to respawn), give it to him and win the fight."},
+  {id:"c4t", tag:"WARNING", t:"Don’t enter Duskveil’s arena until both are done", d:"Scorpionlord and Daoist Mi disappear once you trigger or beat Duskveil."},
+  {id:"c4u", tag:"QUEST", t:"Duskveil", loc:"Purple Cloud Mountain > Cloudnest Peak", tr:"The Cockerel Crowed", links:["jk20","ve03","so21"], d:"Top of the village’s central path. Two health bars. Reward: <b>Weaver’s Needle</b> (Vessel 3/4) and the Double-Combed Rooster Blood soak."},
+  {id:"c4v", tag:"WARNING", t:"STOP: all 4 Purple Altars done?", d:"After the next boss the altars can no longer be used (Crane Immortal + a pill lost until NG+)."},
+  {id:"c4w", tag:"STORY", t:"Hundred-Eyed Daoist Master", loc:"Temple of the Yellow Flower > Court of Illumination", tr:"Behold the Betrayal", links:["jk21","jx15","jc26","jc27","jc28","jc29","jc31"], d:"Ends Chapter 4."}
+]},
+
+{ id:"ch5", kicker:"PHASE 05", title:"Chapter 5 · Flaming Mountains",
+  warn:"POINT OF NO RETURN: Yaksha King ends Chapter 5. Nothing here is lost forever, but don’t touch the stuck cart in the Valley Entrance lava corner until the chapter is over.",
+  rows:[
+  {id:"c5a", tag:"QUEST", t:"Pale-Axe Stalwart → Five Element Carts quest", loc:"Woods of Ember > Ashen Pass I", d:"In the next corridor where bulls and undead fight. Beat him and talk until he repeats. Talk to him again at every new spot he moves to (first here, then where you beat the Crimson-Silver Cart)."},
+  {id:"c5b", tag:"STORY", t:"Brown-Iron Cart, Father of Stones, Gray-Bronze Cart", loc:"Woods of Ember > Height of Ember", links:["jc39","jc40","sp44"], d:"Story fights. After Father of Stones: Charface spirit in the next cave, Amber Prayer Beads in the first right exit."},
+  {id:"c5c", tag:"WARNING", t:"Leave the stuck cart in the lava corner alone for now", loc:"Furnace Valley > Valley Entrance", d:"The cart in the lava pool’s right corner holds the Horse. Both guides say its string can’t be pulled until Chapter 5 is finished, and a player reported that touching it early broke the Horse quest. Come back after Yaksha King (row below)."},
+  {id:"c5d", tag:"QUEST", t:"Flint Chief, Flint Vanguard, Mother of Flamlings", loc:"Field of Fire > Fallen Furnace Crater", links:["jc43","jc44","jc45"], d:"Flint Chief: through the lava left of the main path at Valley Entrance. Flint Vanguard: backtrack down the path the big ball rolled, left through the broken barrier. Mother of Flamlings: past Flint Vanguard, bring 4 Flame Ore to the red magma spot. Their 3 Samadhi Fire Crystals make the Staff of Blazing Karma."},
+  {id:"c5e", tag:"QUEST", t:"Old Man — meeting 5 of 5 → Supreme Gourd", loc:"Furnace Valley > Rakshasa Palace", tr:"Always Accompanied", links:["go02"], d:"Upstairs, over the bridge, left path. The stone gate to his room only opens if you met him in Chapters 1–4. Exhaust dialogue, then interact with the fire in the room — needs your starting Gourd at <b>9 sips</b> (Luojia Vines at Shen Monkey). The trophy needs both parts."},
+  {id:"c5f", tag:"STORY", t:"Yin-Yang Fish / Keeper of the Flaming Mountain", loc:"Furnace Valley > The Emerald Hall", links:["jk22","jx16"], d:"Loong Balm on the throne, Slumbering Beetle Husk on the left, meditation spot “The Buddha” opposite the throne. Up the stairs after the hall: Crimson-Silver Cart — talk to the Ox afterwards."},
+  {id:"c5g", tag:"QUEST", t:"Nine-Capped Lingzhi Guai (hidden)", loc:"Field of Fire > Ashen Pass III", links:["sp53","sd13","sd14","ar14"], d:"Pull the big red mushroom right of the shrine. Two seeds + Earth Spirit Cap."},
+  {id:"c5h", tag:"STORY", t:"Red Boy → Yaksha King", loc:"Field of Fire > Fallen Furnace Crater", tr:"Flaming Fury", links:["jk24","jk25","ve04","jx19","jx20","jx21"], d:"Ends Chapter 5. The <b>Plantain Fan</b> (Vessel 4/4) is awarded automatically — Treasure Trove pops here if you have the other three."}
+]},
+
+{ id:"ch5b", kicker:"PHASE 05½", title:"After Chapter 5 · Horse & Bishui Cave",
+  intro:"Do these from the start of Chapter 6 by fast-travelling back.",
+  rows:[
+  {id:"c5i", tag:"QUEST", t:"Horse NPC — meeting 5 of 5 (pull the string)", loc:"Furnace Valley > Valley Entrance", tr:"Urge Unfulfilled", links:["jx17","sl15"], d:"Walk down the path, enter the lava pool on the right and go to its corner. Clear the enemies around the stuck cart, interact to pull the string. Rewards the Dark Thunder transformation (needed for Master of Magic and Fickle Forms)."},
+  {id:"c5j", tag:"QUEST", t:"Rusty-Gold Cart → Bishui Cave", loc:"Field of Fire > Cooling Slope", links:["cu33","jx18","jc38"], d:"Past the Flint Vanguard route to the Cooling Slope shrine; stand near the big frozen gate to spawn the Rusty-Gold Cart (Flame Orb curio). Talk to the wounded Ox, interact with the gate and follow the path into the secret area."},
+  {id:"c5k", tag:"QUEST", t:"Frog 5 of 6 — Baw-Lang-lang", loc:"Field of Fire > Cooling Slope", links:["jc46"], d:"Through the frozen gate, left side of the big round area (before Bishui Cave). Also reachable after the Bishui boss — you’re teleported out next to it."},
+  {id:"c5l", tag:"QUEST", t:"Bishui Cave sweep", loc:"Bishui Cave > Purge Pit", links:["jc42","sp54","fo02"], d:"Top Takes Bottom, Bottom Takes Top (first boss), Septenary Heartfire Pill formula (mid-air heavy attack to the ledge behind the Purge Pit shrine), meditation spot “The Screen”, Celestial Nonary Pill, Bull Governor spirit at Cave Depths, golden chest with a Bull King’s Iron Horn."},
+  {id:"c5m", tag:"QUEST", t:"Bishui Golden-Eyed Beast", loc:"Bishui Cave > Corridor of Fire and Ice", tr:"Frost and Flame", links:["jk23","cu34"], d:"End of the secret area. Daoist’s Basket of Fire and Water, Bishui Beast Bit (staff) and Bull King’s Iron Horns (limited per playthrough)."}
+]},
+
+{ id:"ch6", kicker:"PHASE 06", title:"Chapter 6 · Mount Huaguo",
+  warn:"POINT OF NO RETURN: the final boss rolls the credits. Afterwards choose CONTINUE JOURNEY — never “Enter a New Cycle” yet.",
+  rows:[
+  {id:"c6a", tag:"STORY", t:"Supreme Inspector → Somersault Cloud", loc:"Foothills > Verdant Path", links:["jx22","fo03","sl16"], d:"First boss. Unlocks flying (R1 + down). Ascension Powder formula is awarded automatically."},
+  {id:"c6b", tag:"QUEST", t:"Frog 6 of 6 — Lang-Baw-Baw", loc:"Foothills > Verdant Path", tr:"The Clamor of Frogs", links:["jc51","cu36"], d:"Fly down to the big lower lake, to the back-right corner nearest the cliff you started on. Looks like a brown patch — dismount to see him. He turns to stone if the fight drags on."},
+  {id:"c6c", tag:"QUEST", t:"Optional Ch6 bosses", loc:"Foothills > Verdant Path", links:["jc47","jc48","jc49","jc50","cu35"], d:"<b>Jiao-Loong of Waves</b> (mid-lake below the post-cutscene spawn; Waterward Orb), <b>Son of Stones</b> (green-glowing head on the cliffs past the lake), <b>Poison Chief</b> (pond with a square rock, upper plateau left), <b>Water-Wood Beast</b> (disturbance in the water, back-left of the lower lake)."},
+  {id:"c6d", tag:"STORY", t:"The four armor bosses", loc:"Foothills", links:["jc52","jc53","jc54","jc55","ar01","ar21","ar41","ar71"], d:"<b>Gold Armored Rhino</b> (upper plateau, right edge), <b>Cloudtreading Deer</b> (red trees across the lake), <b>Feng-Tail General</b> (land on the giant grasshopper, hold the feelers — high health/burn resistance helps), <b>Emerald-Armed Mantis</b> (yellow tree, top-left of the lower lake; appears after the other three). Each gives one Heaven’s Equal piece."},
+  {id:"c6e", tag:"QUEST", t:"Fortune’s Favor chest", loc:"Foothills > Verdant Path", links:["ar02","ar22","ar42","ar72"], d:"Small golden chest on the mountain — fly there on the cloud (PowerPyx lists these four pieces as the second, common version of the Ch6 set; they count separately)."},
+  {id:"c6f", tag:"QUEST", t:"Giant Shigandang (needs all 4 Skandhas)", loc:"Foothills > Verdant Path", links:["jk26","jx23"], d:"Past the big lake and Son of Stones, into the narrow canyon on the right. Walk up his arm afterwards (Mandrill Chief) and take the Five Skandhas Pill reward to Xu Dog."},
+  {id:"c6g", tag:"STORY", t:"Jingubang", loc:"Water Curtain Cave", tr:"Guardian of Gear", links:["we09"], d:"Wear all four Heaven’s Equal pieces, go to the cave at the far end of the upper plateau behind the Son of Stones and touch the golden statue."},
+  {id:"c6h", tag:"STORY", t:"The Great Sage’s Broken Shell", loc:"Birthstone > Heart of Birthstone", tr:"A Duel of Destiny", links:["jx28"], d:"Final boss. At the title screen choose <b>Continue Journey</b> — you respawn before the fight with free roam everywhere."}
+]},
+
+{ id:"clean", kicker:"PHASE 07", title:"100% Cleanup (Continue Journey)",
+  warn:"Everything you’d lose by starting NG+ lives here. Finish the secret ending BEFORE the New Game+ phase.",
+  rows:[
+  {id:"c7a", tag:"SAFE", t:"Sweep every chapter with the Completionist tab", d:"Switch the Completionist tab to <b>By chapter</b> and fast-travel chapter by chapter. Bosses first — they drop most crafting materials and many collectibles."},
+  {id:"c7b", tag:"WARNING", t:"Secret ending prerequisites", d:"Elder Jinchi (Ch1), Fuban (Ch2), Duskveil (Ch4), Bishui Golden-Eyed Beast (Ch5) and the Treasure Hunter quest (Ch3) must all be done."},
+  {id:"c7c", tag:"QUEST", t:"Mount Mei → Erlang → Four Heavenly Kings → Erlang Shen", loc:"Pagoda Realm > The Great Pagoda", tr:"Meet the Match", links:["sl17","we17"], d:"From Snow-Veiled Trail go left down the slope, across the wooden bridge, to the big gate (The Great Pagoda). Talk to the little monk upstairs to enter Mount Mei. The game’s hardest fight chain — do it with your best (Ch6) gear. Rewards Azure Dome and the Tri-Point Double-Edged Spear. PowerPyx: then beat the Chapter 6 final boss again to see the secret ending."},
+  {id:"c7d", tag:"WARNING", t:"Secret ending done before NG+", d:"PSNProfiles: the Maitreya and Erlang Journal pages are added when you start NG+ after reaching the secret ending. Skip it now and you’d need another cycle."},
+  {id:"c7e", tag:"SAFE", t:"Farm the random drops", d:"Seeds, RNG Curios, RNG armor and RNG Soaks (all marked RNG in the Completionist tab). Plants respawn on a 30-minute real-time timer. PSNProfiles tip: close the game, move the PS5 clock forward, relaunch. <b>Never set the clock back</b> — plants then won’t respawn until real time catches up."},
+  {id:"c7f", tag:"SAFE", t:"All 15 seeds to Chen Loong", tr:"Seeds to Sow", links:["so26"], d:"Delivering the full set also rewards the Graceful Orchid soak (needed for Brewer’s Bounty)."},
+  {id:"c7g", tag:"SAFE", t:"Craft everything you can afford", d:"One playthrough doesn’t give enough materials for every weapon and armor piece. Craft as much as possible now and note what’s left for NG+."},
+  {id:"c7h", tag:"WARNING", t:"Upload your save to PS Plus cloud", d:"Your safety net before the next step overwrites the save."}
+]},
+
+{ id:"ngp", kicker:"PHASE 08", title:"New Game+",
+  warn:"“Enter a New Cycle” overwrites your save — there is no way back to the first playthrough. Everything carries over (gear, materials, progress).",
+  rows:[
+  {id:"c8a", tag:"STORY", t:"Title screen → Enter a New Cycle", tr:"Six Senses Secured", d:"Pops once the prologue Erlang fight starts after the first two cutscenes."},
+  {id:"c8b", tag:"STORY", t:"Life-Saving Strand (18th spell)", tr:"Master of Magic", links:["sl18"], d:"Granted automatically at the start of NG+. Master of Magic pops at the same moment if you already own the other 17 spells."},
+  {id:"c8c", tag:"SAFE", t:"Last Journal pages", tr:"Portraits Perfected", links:["jx29","jx30","jx31","jx32"], d:"The Great Sage’s Broken Shell (plus Maitreya and Erlang if you saw the secret ending) are added at the start of NG+. Yuan Shoucheng is added last, once every other page is filled."},
+  {id:"c8d", tag:"QUEST", t:"Buy the NG+ exclusives", tr:"Brewer’s Bounty", links:["so27","go08","fo01"], d:"From Shen Monkey: <b>Guanyin’s Willow Leaf</b> (soak) and the <b>Qing-Tian Gourd</b> (may require a complete Journal). From Xu Dog: the <b>Soul Remigration Pill</b> formula (Page Preserver)."},
+  {id:"c8e", tag:"QUEST", t:"Re-clear the secret areas for materials", tr:"Staffs and Spears", d:"Play at least to the end of Chapter 5, re-beating secret-area bosses: Fuban (4th Sky-Piercing Horn → Adept-Spine Shooting Fuban Staff), the Loongs (Loong Pearls → Stormflash Loong Staff), Bishui Golden-Eyed Beast (Bull King’s Iron Horns → Dark Iron Staff and the Bull King set)."},
+  {id:"c8f", tag:"SAFE", t:"Finish the armor set", tr:"Mantled with Might", d:"74 pieces needed (the 4 Folk Opera pieces are Deluxe-only and don’t count). Missed missables respawn in NG+ — e.g. the Venomous Armguard."},
+  {id:"c8g", tag:"SAFE", t:"Mop up — NG++ if needed", tr:"Final Fulfillment", d:"Pills (Medicine Meal) and anything else still missing can be finished in NG+. If materials are still short, start another cycle — everything carries over."}
+]}
+];
+
+// ————————————————————————————————————————————————————————————————
+// COMPLETIONIST LEDGER — part 1: Journal (Portraits Perfected), Frogs, Loongs
+// Item tuple: [id, name, chapter, area, detail, flags]
+//   chapter: 1–6 · "S" post-story / secret ending · "N" New Game+ · "A" any time
+//   flags:   M missable · N NG+ only · R random drop · $ shop · Q quest ·
+//            A automatic (story) · D DLC/Deluxe (listed, never counted)
+// Ids are shared: the same id in two lists (or a Campaign row's links) is the
+// same checkbox.
+// Source: PowerPyx “All Journal Portraits” (post-story order), cross-checked
+// with the PSNProfiles guide.
+// ————————————————————————————————————————————————————————————————
+
+const LEDGER_JOURNAL = [
+{ id:"jl", title:"Journal · Lesser Yaoguai", trophy:"Portraits Perfected", count:90,
+  note:"Seeing an enemy isn’t enough — defeat each one at least once.", items:[
+["jl01","Wolf Scout",1,"Forest of Wolves > Front Hills","In the forest after the first boss.","A"],
+["jl02","Wolf Swornsword",1,"Forest of Wolves > Front Hills","In the forest after the first boss.","A"],
+["jl03","Wolf Soldier",1,"Forest of Wolves > Front Hills","In the forest after the first boss.",""],
+["jl04","Wolf Stalwart",1,"Forest of Wolves > Front Hills","In the forest after the first boss.",""],
+["jl05","Wolf Archer",1,"Forest of Wolves > Outside the Forest","In the forest after Bullguard.",""],
+["jl06","Wolf Sentinel",1,"Forest of Wolves > Outside the Forest","In the forest after Bullguard.",""],
+["jl07","Wolf Assassin",1,"Bamboo Grove > Marsh of White Mist","Down the ramps after Whiteclad Noble — first enemy in the cave.",""],
+["jl08","Croaky",1,"Forest of Wolves > Front Hills","In the forest after the first boss.",""],
+["jl09","Crow Diviner",1,"Forest of Wolves > Front Hills","In the forest after the first boss.",""],
+["jl10","Bandit Chief",1,"Forest of Wolves > Outside the Forest","Left path from the shrine.",""],
+["jl11","Skeletal Snake",1,"Bamboo Grove > Snake Trail","Areas past the shrine.",""],
+["jl12","Snake Patroller",1,"Bamboo Grove > Snake Trail","Areas past the shrine.",""],
+["jl13","Fungling",1,"Bamboo Grove > Snake Trail","Jump the left cliffs to the river, into the bamboo, left path — pull the glowing mushroom (buried enemy).",""],
+["jl14","Ginsengling",1,"Forest of Wolves > Outside the Forest","Left path — pull the red weed (buried enemy).",""],
+["jl15","Rat Archer",2,"Sandgate Village > Village Entrance","All over the start of Ch2.",""],
+["jl16","Rat Soldier",2,"Sandgate Village > Village Entrance","All over the start of Ch2.",""],
+["jl17","Rat Governor",2,"Sandgate Village > Village Entrance","Straight through the flooded area, at the end with frogs in the water.",""],
+["jl18","Rat Captain",2,"Sandgate Village > Village Entrance","Over the right wooden bridge into the courtyard.",""],
+["jl19","Rat Imperial Guard",2,"Yellow Wind Formation > Windrest Bridge","Across the bridge and past it.",""],
+["jl20","Pitstone",2,"Sandgate Village > Valley of Despair","Turn around, cross the wooden bridge, straight ahead.",""],
+["jl21","Palestone",2,"Fright Cliff > Squall Hideout","Left path, first enemy.",""],
+["jl22","Poisestone",2,"Fright Cliff > Squall Hideout","Left path up to a cave, end of the path before the Buddha head. Respawns once — kill it twice.",""],
+["jl23","Blazebone",2,"Sandgate Village > Valley of Despair","Through the stone gate into the valley, right wall.",""],
+["jl24","Spearbone",2,"Sandgate Village > Valley of Despair","Under the stone gate, straight ahead.",""],
+["jl25","Swift Bat",2,"Sandgate Village > Valley of Despair","Right path into the cave, broken pillar, squeeze through the wall.",""],
+["jl26","Withered Corpse",2,"Yellow Wind Formation > Windrest Bridge","Around the shrine after Tiger Vanguard.",""],
+["jl27","Weasel Captain",2,"Yellow Wind Formation > Windseal Gate","Path directly left of the shrine.",""],
+["jl28","Civet Sergeant",2,"Crouching Tiger Temple > Temple Entrance","After Tiger Vanguard use the arena statue, drop through the hatch, follow the cellar path.",""],
+["jl29","Lingzhiling",2,"Sandgate Village > Village Entrance","Up the stairs, path ahead — buried mushroom on the left.",""],
+["jl30","Supporter Monk",3,"Snowhill Path > Frost-Clad Path","Start of Ch3, story encounter.","A"],
+["jl31","Blade Monk",3,"Pagoda Realm > Lower Pagoda","Past the archer hallway, out the right side.",""],
+["jl32","Censer Holder",3,"Bitter Lake > Precept Corridor","Turn around, over the wooden bridge, right alcove.",""],
+["jl33","Circus Monkey",3,"Valley of Ecstasy > Towers of Karma","Directly in front of the shrine.",""],
+["jl34","Overseeing Monk",3,"New Thunderclap Temple > Temple Entrance","Throughout the temple.",""],
+["jl35","Dual-Blade Monk",3,"Valley of Ecstasy > Towers of Karma","Directly left of the shrine.",""],
+["jl36","Cyan Bat",3,"Snowhill Path > Frost-Clad Path","Start of Ch3, story encounter.","A"],
+["jl37","Frozen Corpse",3,"Snowhill Path > Frost-Clad Path","After the first shrine and cutscene.",""],
+["jl38","Yaksha Patroller",3,"Snowhill Path > Frost-Clad Path","Next area after the Macaque Chief fight.",""],
+["jl39","Yaksha Archer",3,"Pagoda Realm > Lower Pagoda","Hallway after the shrine, story path.",""],
+["jl40","Starved Abomination",3,"Pagoda Realm > Lower Pagoda","Corridors after the shrine.",""],
+["jl41","Red-Haired Yaksha",3,"Pagoda Realm > Upper Pagoda","Corridor right of the shrine.",""],
+["jl42","Lantern Warden",3,"Pagoda Realm > Lower Pagoda","Prison corridors after Kang-Jin Loong — appears when your eyes glow red. Kill all 9 before Captain Wise-Voice.","M"],
+["jl43","Enslaved Yaksha",3,"Pagoda Realm > Lower Pagoda","Upper prison floor, on the way to Upper Pagoda.",""],
+["jl44","Falcon Fan-Maker",3,"Pagoda Realm > Mani Wheel","Turn around, end of the floor — spawns at the end of the path.",""],
+["jl45","Wolf Guardian",3,"Bitter Lake > Precept Corridor","First enemy after the shrine.",""],
+["jl46","Turtle Treasure",3,"Valley of Ecstasy > Longevity Road","Snowy slope left, cliff path — cat-masked hammer enemy by a golden vase.",""],
+["jl47","Thunder-Rhino Master",3,"Valley of Ecstasy > Brook of Bliss","Turn around from the shrine, end of the bridge.",""],
+["jl48","Dark-faced Overlord",3,"Valley of Ecstasy > Longevity Road","Directly right of the shrine.",""],
+["jl49","Clay Vajra",3,"New Thunderclap Temple > Temple Entrance","Straight on from the shrine.",""],
+["jl50","Golden Lotus Guai",3,"Pagoda Realm > Snow-Veiled Trail","Straight up the slope, left path — flower worm.",""],
+["jl51","Wushan Lesser Guai",4,"Village of Lanxi > Estate of the Zhu","Start of Ch4, added automatically.","A"],
+["jl52","Puppet Spider",4,"Village of Lanxi > Estate of the Zhu","First enemy of Ch4.",""],
+["jl53","Puppet Tick",4,"Village of Lanxi > Estate of the Zhu","First village.",""],
+["jl54","Lantern Holder",4,"Village of Lanxi > Estate of the Zhu","First village.",""],
+["jl55","Grasshopper Guai",4,"Village of Lanxi > Estate of the Zhu","First village.",""],
+["jl56","Dragonfly Guai",4,"Village of Lanxi > Estate of the Zhu","First village.",""],
+["jl57","Wasp Guai",4,"Village of Lanxi > Estate of the Zhu","Corner of the Second Sister arena, go right.",""],
+["jl58","Beetle Captain",4,"Village of Lanxi > Estate of the Zhu","First village.",""],
+["jl59","Stone Spider",4,"Village of Lanxi > Estate of the Zhu","Around the gold chest before the shrine.",""],
+["jl60","Minor Amourworm",4,"Webbed Hollow > Cliff of Oblivion","Spider caves from the shrine toward Lower Hollow.",""],
+["jl61","Clawed Cocoon",4,"Webbed Hollow > Upper Hollow","Right of the shrine on the story path.",""],
+["jl62","Scorpion Prince",4,"Webbed Hollow > Upper Hollow","Right of the shrine on the main path.",""],
+["jl63","Sword Daoist",4,"Temple of the Yellow Flower > Mountain Trail","Right of the shrine on the cliff.",""],
+["jl64","Fly-whisk Daoist",4,"Temple of the Yellow Flower > Mountain Trail","Upstairs in the next area.",""],
+["jl65","Staff Daoist",4,"Temple of the Yellow Flower > Mountain Trail","Up the stairs near the temple with two guards.",""],
+["jl66","Snake Herbalist",4,"Temple of the Yellow Flower > Mountain Trail","Main path shortly after the shrine.",""],
+["jl67","Snake Sheriff",4,"Temple of the Yellow Flower > Mountain Trail","Main path, area with the big tree.",""],
+["jl68","Worm Practitioner",4,"Temple of the Yellow Flower > Mountain Trail","Main path, 1–2 minutes after the shrine.",""],
+["jl69","Lushleaf",4,"Purple Cloud Mountain > Valley of Blooms","Drop left of the shrine past the water — glowing blue tree. Secret area.",""],
+["jl70","Revenant Stalwart",5,"Woods of Ember > Ashen Pass I","Start of Ch5, story waves.","A"],
+["jl71","Revenant Archer",5,"Woods of Ember > Ashen Pass I","Start of Ch5, story waves.","A"],
+["jl72","Lavabull Revenant",5,"Woods of Ember > Ashen Pass I","Start of Ch5, in front of the Ashen Pass I shrine.","A"],
+["jl73","Revenant Charbone",5,"Woods of Ember > Camp of Seasons","Over the bridge, in the tunnel.",""],
+["jl74","Revenant Charface",5,"Woods of Ember > Camp of Seasons","Over the bridge, through the tunnel, straight ahead.",""],
+["jl75","Lavabat",5,"Woods of Ember > Camp of Seasons","Fire bat hanging in the cave on the path.",""],
+["jl76","Bull Sergeant",5,"Woods of Ember > Ashen Pass I","Path directly after the shrine.",""],
+["jl77","Bull Soldier",5,"Woods of Ember > Ashen Pass I","Path directly after the shrine.",""],
+["jl78","Bull Stalwart",5,"Furnace Valley > Rakshasa Palace","Over the left lava stretch, back corner on the lava.",""],
+["jl79","Searing-Fire",5,"Furnace Valley > Valley Entrance","Around the shrine — big lava rock.",""],
+["jl80","Scorching-Fire",5,"Furnace Valley > Valley Entrance","Around the shrine — small lava rock.",""],
+["jl81","Flamling",5,"Furnace Valley > Valley Entrance","Down the path to the lava lake on the right.",""],
+["jl82","Tenner",5,"Furnace Valley > Valley Entrance","Through the lava lake on the right, near the gold chest.",""],
+["jl83","Earth Rakshasa",5,"Furnace Valley > Valley Entrance","Directly in front of the shrine.",""],
+["jl84","Sea Rakshasa",5,"Furnace Valley > Rakshasa Palace","Upstairs, over the bridge — the two giants on the path.",""],
+["jl85","Flame Rhino Master",5,"Furnace Valley > Rakshasa Palace","Main path after the shrine.",""],
+["jl86","Bull Governor",5,"Furnace Valley > Rakshasa Palace","Upstairs, over the bridge, right side.",""],
+["jl87","Eagle Soldier",6,"Foothills > Verdant Path","Start of Ch6, story encounter.","A"],
+["jl88","Hound Soldier",6,"Foothills > Verdant Path","Start of Ch6, story encounter.","A"],
+["jl89","Jackal Soldier",6,"Foothills > Verdant Path","Start of Ch6, story encounter.","A"],
+["jl90","Captain of the Court",6,"Foothills > Verdant Path","Start of Ch6, story encounter. Some players report missing it — make sure you kill one.","A"]
+]},
+
+{ id:"jc", title:"Journal · Yaoguai Chiefs", trophy:"Portraits Perfected", count:55, items:[
+["jc01","Bullguard",1,"Forest of Wolves > Front Hills","Story boss in the forest.","A"],
+["jc02","Guangzhi",1,"Forest of Wolves > Outside the Forest","Left path, wooden bridge, follow the torches. Bell 1 behind him.",""],
+["jc03","Guangmou",1,"Bamboo Grove > Snake Trail","Cliffs left to the river, right into the bamboo, paved path past two torches. Bell 2 behind him.",""],
+["jc04","Baw-Li-Guhh-Lang",1,"Bamboo Grove > Snake Trail","Cliffs left to the river, turn left, follow the river to its end. Frog 1/6.",""],
+["jc05","Lang-Li-Guhh-Baw",2,"Sandgate Village > Village Entrance","Left of the shrine, drop into the ravine, flooded area. Frog 2/6.",""],
+["jc06","Earth Wolf",2,"Sandgate Village > Village Entrance","Breakable wall below the Rat Archer roof in the village corner.",""],
+["jc07","The Royal Family of Flowing Sands",2,"Sandgate Village > Village Entrance","Locked gate right of the courtyard. Kill the small rat first for the Second Rat Prince spirit.",""],
+["jc08","First Prince of Flowing Sands",2,"Sandgate Village > Valley of Despair","Right path into the cave, turn left after two enemies.",""],
+["jc09","Mother of Stones",2,"Fright Cliff > Squall Hideout","End of the cave before Rockrest Flat — hit the 3 blue crystals.",""],
+["jc10","Tiger’s Acolyte",2,"Yellow Wind Formation > Windrest Hamlet","On the next bridge after the shrine.",""],
+["jc11","Gore-Eye Daoist",2,"Yellow Wind Formation > Windseal Gate","Left of the shrine, in front of a tree.",""],
+["jc12","Mad Tiger",2,"Sandgate Village > Bottom of the Well","Old-Rattle Drum at 3 spots, then jump into the well.","Q"],
+["jc13","Tiger Vanguard (secret)",2,"Kingdom of Sahi > Sandgate Pass","First boss of the Ch2 secret area (Drunken Boar questline).","Q"],
+["jc14","Captain Lotus-Vision",3,"Pagoda Realm > Upper Pagoda","Drop off the cliff across from the shrine into a cell.",""],
+["jc15","Captain Void-Illusion",3,"Valley of Ecstasy > Longevity Road","Right of the shrine at the area edge — interact with the giant corpse.",""],
+["jc16","Captain Kalpa-Wave",3,"Valley of Ecstasy > Longevity Road","Straight, then right — in front of a red barrier. Attack the legs.",""],
+["jc17","Apramana Bat",3,"Bitter Lake > North Shore of the Bitter Lake","End of the coastline. First visit only — gone once Zhu Bajie leaves your party.","M"],
+["jc18","Lang-Li-Guhh-Lang",3,"Valley of Ecstasy > Forest of Felicity","Turn around from the shrine, cave on the right. Frog 3/6.",""],
+["jc19","Old Ginseng Guai",3,"Valley of Ecstasy > Towers of Karma","Left past the wall-facing monk to the corner altar — pull the plant.",""],
+["jc20","Non-White",3,"Valley of Ecstasy > Mindfulness Cliff","Main path after the shrine, fought twice.","A"],
+["jc21","Non-Pure",3,"New Thunderclap Temple > Temple Entrance","Past the two colossi, building on the right.",""],
+["jc22","Non-Able",3,"Valley of Ecstasy > Brook of Bliss","Up the slope right of the shrine, around the right side at the top.",""],
+["jc23","Non-Void",3,"New Thunderclap Temple > Temple Entrance","Fox questline — fox form in the upper temple.","Q"],
+["jc24","Monk from the Sea",3,"New Thunderclap Temple > Temple Entrance","Right path, through the left gate, left corner.",""],
+["jc25","Macaque Chief",3,"New Thunderclap Temple > Mahavira Hall","Added automatically at the end of Ch3 (the first two fights don’t count).","A"],
+["jc26","The Sixth Sister",4,"Temple of the Yellow Flower > Court of Illumination","Added automatically after Hundred-Eyed Daoist Master.","A"],
+["jc27","The Fifth Sister",4,"Temple of the Yellow Flower > Court of Illumination","Added automatically after Hundred-Eyed Daoist Master.","A"],
+["jc28","The Fourth Sister",4,"Temple of the Yellow Flower > Court of Illumination","Added automatically after Hundred-Eyed Daoist Master.","A"],
+["jc29","The Third Sister",4,"Temple of the Yellow Flower > Court of Illumination","Added automatically after Hundred-Eyed Daoist Master.","A"],
+["jc30","The Second Sister",4,"Village of Lanxi > Estate of the Zhu","Through the next door after the shrine.","A"],
+["jc31","The First Sister",4,"Temple of the Yellow Flower > Court of Illumination","Added automatically after Hundred-Eyed Daoist Master.","A"],
+["jc32","Elder Amourworm",4,"Webbed Hollow > The Verdure Bridge","Over the green bridge, through the treasure room.",""],
+["jc33","Centipede Guai",4,"Webbed Hollow > Middle Hollow","Forward down the cliffs from the shrine.","A"],
+["jc34","Buddha’s Right Hand",4,"Webbed Hollow > Cliff of Oblivion","Glowing hand in the next corridor.","A"],
+["jc35","Baw-Li-Guhh-Baw",4,"Webbed Hollow > Lower Hollow","Tunnel left, squeeze through the crack, corridor on the left. Frog 4/6.",""],
+["jc36","Commander Beetle",4,"Temple of the Yellow Flower > Forest of Ferocity","Behind the training Daoists after the shrine.",""],
+["jc37","Daoist Mi",4,"Purple Cloud Mountain > Petalfall Hamlet","Bring him the Violet Hail item. Before Duskveil.","M"],
+["jc38","Five Element Carts",5,"Field of Fire > Cooling Slope","Pale-Axe Stalwart’s quest — all five carts.","Q"],
+["jc39","Father of Stones",5,"Woods of Ember > Height of Ember","Directly after the shrine, main path.","A"],
+["jc40","Quick as Fire, Fast as Wind",5,"Woods of Ember > Height of Ember","Story boss.","A"],
+["jc41","Cloudy Mist, Misty Cloud",5,"Furnace Valley > Valley Entrance","Story boss at the end of the path.","A"],
+["jc42","Top Takes Bottom, Bottom Takes Top",5,"Bishui Cave > Purge Pit","First boss of the Ch5 secret area.",""],
+["jc43","Flint Chief",5,"Furnace Valley > Valley Entrance","Through the lava left of the main path, at the end.",""],
+["jc44","Flint Vanguard",5,"Field of Fire > Fallen Furnace Crater","Backtrack down the rolling-ball path, left at the broken barrier.",""],
+["jc45","Mother of Flamlings",5,"Field of Fire > Fallen Furnace Crater","Past Flint Vanguard — bring 4 Flame Ore to the red magma spot.",""],
+["jc46","Baw-Lang-lang",5,"Field of Fire > Cooling Slope","Through the frozen gate, left side of the big round area. Frog 5/6.",""],
+["jc47","Son of Stones",6,"Foothills > Verdant Path","Fly to the cliffs past the big lake — green-glowing head.",""],
+["jc48","Poison Chief",6,"Foothills > Verdant Path","Upper plateau, fly left to the pond with a square rock.",""],
+["jc49","Water-Wood Beast",6,"Foothills > Verdant Path","Back-left corner of the lower lake — disturbance in the water.",""],
+["jc50","Jiao-Loong of Waves",6,"Foothills > Verdant Path","Fly down to the pool below the cliffs; middle of the lake.",""],
+["jc51","Lang-Baw-Baw",6,"Foothills > Verdant Path","Back-right corner of the big lower lake, nearest the starting cliff. Frog 6/6.",""],
+["jc52","Gold Armored Rhino",6,"Foothills > Rhino Watch Slope","Upper plateau, right edge. Story.","A"],
+["jc53","Cloudtreading Deer",6,"Foothills > Deer Sight Forest","Over the big lake to the red trees. Story.","A"],
+["jc54","Feng-Tail General",6,"Foothills > Mantis-Catching Swamp","Ride the giant grasshopper, hold the feelers. Story.","A"],
+["jc55","Emerald-Armed Mantis",6,"Foothills > Mantis-Catching Swamp","Big yellow tree in the lower lake, after the other three. Story.","A"]
+]},
+
+{ id:"jk", title:"Journal · Yaoguai Kings", trophy:"Portraits Perfected", count:26, items:[
+["jk01","Lingxuzi",1,"Forest of Wolves > Guanyin Temple","Story boss.","A"],
+["jk02","The Red Loong",1,"Forest of Wolves > Outside the Forest","Waterfall at the end of the left path. Needs Loong Scales.","Q"],
+["jk03","Elder Jinchi",1,"Ancient Guanyin Temple > Grand Chamber","Ring all 3 bells.","Q"],
+["jk04","Black Wind King",1,"Black Wind Cave > Cave Interior","Story boss.","A"],
+["jk05","Black Bear Guai",1,"Black Wind Cave > Bodhi Peak","Story boss.","A"],
+["jk06","Tiger Vanguard",2,"Crouching Tiger Temple > Temple Entrance","Straight up the stairs.","A"],
+["jk07","Stone Vanguard",2,"Fright Cliff > Rockrest Flat","Left path from the shrine.","A"],
+["jk08","Shigandang",2,"Fright Cliff > Rockrest Flat","Bring 6 Buddha’s Eyeballs to the faced rock in the Stone Vanguard arena.","Q"],
+["jk09","Black Loong",2,"Fright Cliff > Rockrest Flat","Right, up the path to the waterfall. Needs Loong Scales.","Q"],
+["jk10","Fuban",2,"Kingdom of Sahi > Sandgate Bound","Talk to the cliff NPC after the secret Tiger Vanguard.","Q"],
+["jk11","Yellow Wind Sage",2,"Crouching Tiger Temple > Cellar","Chapter 2 final boss.","A"],
+["jk12","Kang-Jin Loong",3,"Snowhill Path > Mirrormere","House on the frozen lake. Story.","A"],
+["jk13","Kang-Jin Star",3,"Pagoda Realm > Warding Temple","Follow the path until you slide down a snowy slope.",""],
+["jk14","Captain Wise-Voice",3,"Pagoda Realm > Mani Wheel","Story boss.","A"],
+["jk15","Cyan Loong",3,"Bitter Lake > Turtle Island","Dragon statue, back-right corner of the island. Needs Loong Scales.","Q"],
+["jk16","Yellowbrow",3,"New Thunderclap Temple > Mahavira Hall","Chapter 3 final boss.","A"],
+["jk17","Violet Spider",4,"Webbed Hollow > The Gathering Cave","Story boss.","A"],
+["jk18","Yellow Loong",4,"Webbed Hollow > Relief of the Fallen Loong","After the other three Loongs.","Q"],
+["jk19","The Scorpionlord",4,"Purple Cloud Mountain > Bounds of Deity’s Abode","Destroy the kegs under him. Before Duskveil.","M"],
+["jk20","The Duskveil",4,"Purple Cloud Mountain > Cloudnest Peak","End of the Ch4 secret area.",""],
+["jk21","Hundred-Eyed Daoist Master",4,"Temple of the Yellow Flower > Court of Illumination","Chapter 4 final boss.","A"],
+["jk22","Yin-Yang Fish",5,"Furnace Valley > The Emerald Hall","Directly after the shrine.","A"],
+["jk23","Bishui Golden-Eyed Beast",5,"Bishui Cave > Corridor of Fire and Ice","End of the Ch5 secret area.",""],
+["jk24","Red Boy",5,"Field of Fire > Fallen Furnace Crater","Directly after the shrine.","A"],
+["jk25","Yaksha King",5,"Field of Fire > Fallen Furnace Crater","After Red Boy.","A"],
+["jk26","Giant Shigandang",6,"Foothills > Verdant Path","Past the big lake and Son of Stones, narrow canyon on the right. Needs all 4 Skandhas.","Q"]
+]},
+
+{ id:"jx", title:"Journal · Characters", trophy:"Portraits Perfected", count:32, items:[
+["jx01","Whiteclad Noble",1,"Bamboo Grove > Marsh of White Mist","Story boss.","A"],
+["jx02","Keeper of the Black Wind Mountain",1,"Black Wind Cave > Bodhi Peak","Added after Black Bear Guai.","A"],
+["jx03","Man-in-Stone",2,"Fright Cliff > Squall Hideout","Give him the Stone Essence from Mother of Stones.","Q"],
+["jx04","Yellow-Robed Squire",2,"Fright Cliff > Rockrest Flat","End of the Drunken Boar questline.","Q"],
+["jx05","Headless Monk",2,"Crouching Tiger Temple > Temple Entrance","Cellar cutscene below the Tiger Vanguard arena.","A"],
+["jx06","Bodhisattva Lingji of New Mount Sumeru",2,"Crouching Tiger Temple > Cellar","Final Ch2 cutscene.","A"],
+["jx07","Turtle General",3,"Bitter Lake > North Shore of the Bitter Lake","After the Apramana Bat, interact with the skeleton on the left.",""],
+["jx08","The Fox",3,"Valley of Ecstasy > Forest of Felicity","Fox side questline.","Q"],
+["jx09","Green-Capped Martialist",3,"Valley of Ecstasy > Melon Field","Treasure Hunter questline.","Q"],
+["jx10","The Third Prince",3,"Pagoda Realm > Lower Pagoda","Deliver the 4 Captain spirits to the prisoner.","Q"],
+["jx11","Keeper of the New West",3,"New Thunderclap Temple > Mahavira Hall","Added after Ch3.","A"],
+["jx12","Zhu Bajie",4,"Webbed Hollow > Hut of Immortality","Story boss, fought twice.","A"],
+["jx13","Venom Daoist",4,"Temple of the Yellow Flower > Court of Illumination","Beaten on the way into the Ch4 secret area.",""],
+["jx14","Crane Immortal",4,"Temple of the Yellow Flower > Court of Illumination","All 4 Purple Altars — before Hundred-Eyed Daoist Master.","M"],
+["jx15","Hong Yi",4,"Temple of the Yellow Flower > Court of Illumination","Added after Hundred-Eyed Daoist Master.","A"],
+["jx16","Keeper of the Flaming Mountain",5,"Furnace Valley > The Emerald Hall","Directly after the shrine.","A"],
+["jx17","Ma Tianba",5,"Furnace Valley > Valley Entrance","The Horse — pull the stuck cart’s string after finishing Ch5.","Q"],
+["jx18","Pale-Axe Stalwart",5,"Field of Fire > Cooling Slope","Five Element Carts quest, after the last cart.","Q"],
+["jx19","Pingping",5,"Field of Fire > Fallen Furnace Crater","Added after Ch5.","A"],
+["jx20","Rakshasi",5,"Field of Fire > Fallen Furnace Crater","Added after Ch5.","A"],
+["jx21","Bull King",5,"Field of Fire > Fallen Furnace Crater","Added after Ch5.","A"],
+["jx22","Supreme Celestial Inspector",6,"Foothills > Verdant Path","First Ch6 boss.","A"],
+["jx23","Mandrill Chief",6,"Foothills > Verdant Path","Walk up Giant Shigandang’s arm after beating him.","Q"],
+["jx24","Yin Tiger",3,"Zodiac Village","Duel and beat the blacksmith.","Q"],
+["jx25","Chen Loong",3,"Zodiac Village","Finish the Chen Loong questline.","Q"],
+["jx26","Shen Monkey",1,"Bamboo Grove > Marsh of White Mist","Kill the snake, follow him into his cave.",""],
+["jx27","Xu Dog",2,"Crouching Tiger Temple > Cellar","Pops out of a vase right of the Cellar shrine (or meet him after Lang-Li-Guhh-Baw).",""],
+["jx28","The Old Monkey",6,"Birthstone > Heart of Birthstone","End of Ch6.","A"],
+["jx29","The Great Sage’s Broken Shell","N","New Game+","Added when you start a New Cycle.","N"],
+["jx30","Maitreya","N","New Game+","Added when you start NG+ after reaching the secret ending.","N"],
+["jx31","Erlang, the Sacred Divinity","N","New Game+","Added when you start NG+ after reaching the secret ending.","N"],
+["jx32","Yuan Shoucheng","N","New Game+","The Old Man — added last, once every other page is complete.","N"]
+]},
+
+{ id:"frogs", title:"The Six Frogs", trophy:"The Clamor of Frogs", count:6,
+  note:"Same checkboxes as their Journal pages.", items:[
+["jc04","Baw-Li-Guhh-Lang",1,"Bamboo Grove > Snake Trail","Jump the cliffs left of the shrine to the river, turn left, follow it to the end.",""],
+["jc05","Lang-Li-Guhh-Baw",2,"Sandgate Village > Village Entrance","Left of the shrine, drop into the ravine, flooded area.",""],
+["jc18","Lang-Li-Guhh-Lang",3,"Valley of Ecstasy > Forest of Felicity","Turn around from the shrine, cave on the right.",""],
+["jc35","Baw-Li-Guhh-Baw",4,"Webbed Hollow > Lower Hollow","Tunnel left, crack in the left wall, corridor left of the meditation spot.",""],
+["jc46","Baw-Lang-lang",5,"Field of Fire > Cooling Slope","Through the frozen gate (Ch5 secret area route), left side of the round area.",""],
+["jc51","Lang-Baw-Baw",6,"Foothills > Verdant Path","Big lower lake, back-right corner nearest the starting cliff. Dismount to see him.",""]
+]},
+
+{ id:"loongs", title:"The Four Loongs", trophy:"The Sire and Sons", count:4,
+  note:"All need the Loong Scales (Ch2 > Valley of Despair). Same checkboxes as their Journal pages.", items:[
+["jk02","Red Loong",1,"Forest of Wolves > Outside the Forest","Left path from the shrine to the corner waterfall — interact.","Q"],
+["jk09","Black Loong",2,"Fright Cliff > Rockrest Flat","Right from the shrine, up to the sand waterfall — interact.","Q"],
+["jk15","Cyan Loong",3,"Bitter Lake > Turtle Island","Dragon statue at the back-right corner of the island.","Q"],
+["jk18","Yellow Loong",4,"Webbed Hollow > Relief of the Fallen Loong","Right of the hidden shrine, once the other three are dead.","Q"]
+]}
+];
+
+// ————————————————————————————————————————————————————————————————
+// COMPLETIONIST LEDGER — part 2: Spirits, Spells, Curios, Vessels, Brews,
+// Formulas, Seeds, Meditation, Pills, Weapons, Armor, Supporting lists.
+// Same tuple format as part 1. Sources: PowerPyx location guides (one per
+// category), cross-checked with PSNProfiles. Post-1.0.8 locations.
+// ————————————————————————————————————————————————————————————————
+
+const LEDGER_GEAR = [
+{ id:"sp", title:"Spirits", trophy:"Fickle Forms", count:54,
+  note:"Fickle Forms = all 54 Spirits + all 10 Transformations (marked TRANSF. in Spells). Absorbing spirits needs the Blessed Gourd; missed ones can be claimed at any shrine.", items:[
+["sp01","Wandering Wight",1,"Forest of Wolves > Outside the Forest","Stone-headed boss straight ahead from the shrine. Gone after Elder Jinchi (back in NG+).","M"],
+["sp02","Baw-Li-Guhh-Lang",1,"Bamboo Grove > Snake Trail","Frog boss — cliffs left of the shrine to the river, left to the end.",""],
+["sp03","Guangmou",1,"Bamboo Grove > Snake Trail","Boss — cliffs left, right past a snake, paved path past two torches.",""],
+["sp04","Wolf Assassin",1,"Black Wind Cave > Outside the Cave","Cross the arrow-shooting wooden bridge, drop into the left side area with a chest.",""],
+["sp05","Rat Archer",2,"Sandgate Village > Village Entrance","After Earth Wolf, open the village gate from the back — the glowing archer drops down.",""],
+["sp06","Earth Wolf",2,"Sandgate Village > Village Entrance","Miniboss behind the breakable wall under the Rat Archer roof.",""],
+["sp07","Second Rat Prince",2,"Sandgate Village > Village Entrance","Locked gate right of the courtyard. Kill the small King of Flowing Sands FIRST.","M"],
+["sp08","Swift Bat",2,"Sandgate Village > Valley of Despair","Right path into the cave, drop down, cross the broken pillar, squeeze through the wall.",""],
+["sp09","Poisestone",2,"Fright Cliff > Squall Hideout","Left path, up to a cave, right, next left up a path — just before Rockrest Flat.",""],
+["sp10","Spearbone",2,"Fright Cliff > Rockrest Flat","Up the path to the right, near the sand waterfall.",""],
+["sp11","Civet Sergeant",2,"Crouching Tiger Temple > Temple Entrance","Below the Tiger Vanguard arena: statue → hatch → cellar path.",""],
+["sp12","Rat Governor",2,"Fright Cliff > Rock Clash Platform","On the main path right after the shrine (glowing shaman).",""],
+["sp13","Rat Imperial Guard",2,"Yellow Wind Formation > Windrest Bridge","End of the village: three red-robed rats, one glowing.",""],
+["sp14","Tiger’s Acolyte",2,"Yellow Wind Formation > Windrest Hamlet","Boss on the next bridge after the shrine.",""],
+["sp15","Gore-Eye Daoist",2,"Yellow Wind Formation > Windseal Gate","Path left of the shrine, in front of a tree.",""],
+["sp16","Mad Tiger",2,"Sandgate Village > Bottom of the Well","Old-Rattle Drum at three spots, then jump into the well.","Q"],
+["sp17","Mountain Patroller",3,"Snowhill Path > Frost-Clad Path","Past Macaque Chief, up the left stairs into the buildings, end of the path.",""],
+["sp18","Fungiman",3,"Pagoda Realm > Upper Pagoda","Cross the beam past the archer, first left gate, turn left — pull the fungus.",""],
+["sp19","Blade Monk",3,"Pagoda Realm > Mani Wheel","Past the Wise-Voice arena turn right to the cliff end, drop one floor left, walk to the end (golden keg).",""],
+["sp20","Falcon Hermit",3,"Pagoda Realm > Snow-Veiled Trail","Straight up the slope, left path, climb to the top.",""],
+["sp21","Enslaved Yaksha",3,"Pagoda Realm > Upper Pagoda","After Captain Lotus-Vision: purple-sealed cell (drop the pit behind the shrine, outer beam).",""],
+["sp22","Apramana Bat",3,"Bitter Lake > North Shore of the Bitter Lake","Boss at the end of the coastline — first visit only. Spirit shows up at the start of Ch4.","M"],
+["sp23","Red-Haired Yaksha",3,"Bitter Lake > Precept Corridor","On the path right after the shrine.",""],
+["sp24","Non-Able",3,"Valley of Ecstasy > Brook of Bliss","Up the slope right of the shrine, around the right side at the top.",""],
+["sp25","Non-White",3,"Valley of Ecstasy > Mindfulness Cliff","Story boss after the shrine — fought twice.","A"],
+["sp26","Crow Diviner",3,"Valley of Ecstasy > Forest of Felicity","Forward, down slightly right (not the left gate) to the pond.",""],
+["sp27","Old Ginseng Guai",3,"Valley of Ecstasy > Towers of Karma","Left from the shrine to the stone pillar — pull the big ginseng.",""],
+["sp28","Clay Vajra",3,"New Thunderclap Temple > Temple Entrance","Straight, then upstairs behind the next building — four-legged fire-belly.",""],
+["sp29","Non-Pure",3,"New Thunderclap Temple > Temple Entrance","Past the two colossi, building on the right.",""],
+["sp30","Non-Void",3,"New Thunderclap Temple > Temple Entrance","Fox questline — Snow Fox Brush, then fox form in the upper temple.","Q"],
+["sp31","Lantern Holder",4,"Village of Lanxi > Estate of the Zhu","After Second Sister, drop the dark hole, fast-travel back — spawns where she was.",""],
+["sp32","Beetle Captain",4,"Webbed Hollow > Upper Hollow","Past the second green-arrow archer, cave on the right (don’t drop left).",""],
+["sp33","Scorpion Prince",4,"Webbed Hollow > The Verdure Bridge","Left over the root bridge, left past two lanterns, drop right, up into the village.",""],
+["sp34","Puppet Spider",4,"Webbed Hollow > The Verdure Bridge","Spider area past the green planks — cocoons on the left in the brighter area.",""],
+["sp35","Elder Amourworm",4,"Webbed Hollow > The Verdure Bridge","Beat the boss for the Proto Amourworm, give it to Chen Loong in Zodiac Village, then feed the worm 3 Rice Cocoons (random from white cocoons; rest after each).","Q"],
+["sp36","Puppet Tick",4,"Webbed Hollow > Relief of the Fallen Loong","Left and up the rocks, into the cave, right side.",""],
+["sp37","Centipede Guai",4,"Webbed Hollow > Middle Hollow","Main boss down the cliffs.","A"],
+["sp38","Dragonfly Guai",4,"Webbed Hollow > The Purifying Spring","Forward and up — flying enemy on the right.",""],
+["sp39","Commander Beetle",4,"Temple of the Yellow Flower > Forest of Ferocity","Boss behind the training Daoists.",""],
+["sp40","Snake Sheriff",4,"Temple of the Yellow Flower > Temple Entrance","Into the temple, right through the gate — glowing long-necked tiger.",""],
+["sp41","Fungiwoman",4,"Temple of the Yellow Flower > Court of Illumination","Stairs across, right at the split — pull the mushroom.",""],
+["sp42","Verdant Glow",4,"Purple Cloud Mountain > Valley of Blooms","Drop left of the shrine past the water — glowing tree (Journal: Lushleaf).",""],
+["sp43","Snake Herbalist",4,"Purple Cloud Mountain > Valley of Blooms","Cross the bridge, left and up the path.",""],
+["sp44","Father of Stones",5,"Woods of Ember > Height of Ember","Story boss after the shrine.","A"],
+["sp45","Charface",5,"Woods of Ember > Height of Ember","After Father of Stones, the next cave — fire-sword enemy.",""],
+["sp46","Turtle Treasure",5,"Furnace Valley > Valley Entrance","Through the lava lake on the right — cat guarding a gold chest.",""],
+["sp47","Flint Chief",5,"Furnace Valley > Valley Entrance","Through the lava left of the main path, at the end.",""],
+["sp48","Earth Rakshasa",5,"Furnace Valley > Valley Entrance","Up the rocky path, optional left path before the right bend — shield enemy by a chest.",""],
+["sp49","Cloudy Mist, Misty Cloud",5,"Furnace Valley > Valley Entrance","Story boss at the end of the path.","A"],
+["sp50","Top Takes Bottom, Bottom Takes Top",5,"Furnace Valley > The Emerald Hall","After the Ch5 secret boss: leave the hall by the stairs, interact with the steel ball in the rock.",""],
+["sp51","Flint Vanguard",5,"Field of Fire > Fallen Furnace Crater","Backtrack down the rolling-ball path, left past the broken barrier.",""],
+["sp52","Mother of Flamlings",5,"Field of Fire > Fallen Furnace Crater","Past Flint Vanguard — 4 Flame Ore at the red magma spot.",""],
+["sp53","Nine-Capped Lingzhi Guai",5,"Field of Fire > Ashen Pass III","Pull the biggest mushroom right of the shrine.",""],
+["sp54","Bull Governor",5,"Bishui Cave > Cave Depths","Straight ahead after the second secret-area shrine.",""]
+]},
+
+{ id:"sl", title:"Spells & Transformations", trophy:"Master of Magic", count:18,
+  note:"Master of Magic = all 18 (the last one comes with NG+). TRANSF. rows also count for Fickle Forms.", items:[
+["sl01","Immobilize",1,"Forest of Wolves > Front Hills","Given during the Bullguard fight.","A"],
+["sl02","Red Tides — TRANSF.",1,"Forest of Wolves > Outside the Forest","Beat Guangzhi (left path, bridge, torches).",""],
+["sl03","Cloud Step",1,"Black Wind Cave > Cave Interior","After Black Wind King.","A"],
+["sl04","Rock Solid",2,"Crouching Tiger Temple > Temple Entrance","After Tiger Vanguard.","A"],
+["sl05","A Pluck of Many",2,"Crouching Tiger Temple > Temple Entrance","Arena statue → hatch → cellar path (Headless Monk).",""],
+["sl06","Azure Dust — TRANSF.",2,"Fright Cliff > Squall Hideout","Man-in-Stone (bring him the Stone Essence).","Q"],
+["sl07","Ashen Slumber — TRANSF.",3,"Pagoda Realm > Lower Pagoda","Prisoner quest — 4 Captain spirits. Fallback: the two-headed rat one floor up.","Q"],
+["sl08","Ring of Fire",3,"Pagoda Realm > Warding Temple","Old Man after the Macaque Chief fight.","A"],
+["sl09","Ebon Flow — TRANSF.",3,"Zodiac Village","Duel and beat Yin Tiger.","Q"],
+["sl10","Spell Binder",3,"Valley of Ecstasy > Melon Field","Treasure Hunter questline (Green-Capped Martialist).","Q"],
+["sl11","Hoarfrost — TRANSF.",3,"New Thunderclap Temple > Temple Entrance","Monk from the Sea — right path, left gate, left corner.",""],
+["sl12","Umbral Abyss — TRANSF.",3,"New Thunderclap Temple > Mahavira Hall","After Yellowbrow.","A"],
+["sl13","Violet Hail — TRANSF.",4,"Purple Cloud Mountain > Petalfall Hamlet","Daoist Mi quest. Before Duskveil.","M"],
+["sl14","Golden Lining — TRANSF.",4,"Webbed Hollow > Relief of the Fallen Loong","Yellow Loong (after the other three Loongs).","Q"],
+["sl15","Dark Thunder — TRANSF.",5,"Furnace Valley > Valley Entrance","Horse chain — pull the stuck cart’s string after Ch5. Needs every earlier Horse meeting.","M"],
+["sl16","Somersault Cloud",6,"Foothills > Verdant Path","After Supreme Inspector.","A"],
+["sl17","Azure Dome — TRANSF.","S","Pagoda Realm > The Great Pagoda","Secret ending (Mount Mei).","Q"],
+["sl18","Life-Saving Strand","N","New Game+","Automatic when you start NG+.","N"]
+]},
+
+{ id:"cu", title:"Curios", trophy:"A Curious Collection", count:36,
+  note:"36 needed. Wind Chime is Deluxe-only and doesn’t count.", items:[
+["cu01","Cat Eye Beads",1,"Forest of Wolves > Outside the Forest","Wandering Wight drop — before Elder Jinchi.","M"],
+["cu02","Agate Jar",1,"Black Wind Cave > Cave Interior","Small chest on the left in the Black Wind King arena.",""],
+["cu03","Back Scratcher",1,"Shop (Ch1 shrines)","Buy at a Chapter 1 shrine after finishing Chapter 2.","$"],
+["cu04","Boshan Censer",1,"Forest of Wolves > Outside the Forest","Red Loong drop (Loong Scales).","Q"],
+["cu05","Glazed Reliquary",2,"Yellow Wind Formation > Windrest Hamlet","Small chest in the cave behind Tiger’s Acolyte.",""],
+["cu06","Goldflora Hairpin",2,"Fright Cliff > Squall Hideout","Man-in-Stone’s shop after his quest — 12,800 Will.","$"],
+["cu07","Tricadna Pendant",2,"Fright Cliff > Rockrest Flat","Black Loong drop (Loong Scales).","Q"],
+["cu08","Tiger Tally",2,"Kingdom of Sahi > Sandgate Pass","Secret Tiger Vanguard drop.","Q"],
+["cu09","Mani Bead",3,"Snowhill Path > Mirrormere","Random drop from Frozen Corpses (one leans on a tree ~20 m right of the shrine).","R"],
+["cu10","Auspicious Lantern",3,"Pagoda Realm > Lower Pagoda","Kill all 9 Lantern Wardens before Captain Wise-Voice.","M"],
+["cu11","Fine China Tea Bowl",3,"Pagoda Realm > Lower Pagoda","Small golden chest at the end of the lower prison corridor, under the stairs.",""],
+["cu12","Frostsprout Twig",3,"Pagoda Realm > Upper Pagoda","Captain Lotus-Vision drop.",""],
+["cu13","Maitreya’s Orb",3,"Valley of Ecstasy > Mindfulness Cliff","Post-1.0.8: up the stairs from the shrine, small box on the left of the path.",""],
+["cu14","Gold Spikeplate",3,"Valley of Ecstasy > Longevity Road","Huge giant in the corner of the statue-lined path, down the left side.",""],
+["cu15","Bronze Buddha Pendant",3,"Valley of Ecstasy > Forest of Felicity","Random drop: yellow-robed Wolf Guardians that jump down at the big gate past the torii.","R"],
+["cu16","Snow Fox Brush",3,"Valley of Ecstasy > Forest of Felicity","Fox questline reward.","Q"],
+["cu17","Beast Buddha",3,"Valley of Ecstasy > Towers of Karma","Random drop: Dual-Blade Monk facing the wall in front of the shrine. Use light attacks, no magic.","R"],
+["cu18","Thunderflame Seal",3,"New Thunderclap Temple > Temple Entrance","Random drop: Thunder-Rhino Master mages on the stairs outside the temple.","R"],
+["cu19","Thunderstone",3,"New Thunderclap Temple > Temple Entrance","Past the temple, up the stairs, small chest in the next building.",""],
+["cu20","Cuo Jin-Yin Belt Hook",4,"Webbed Hollow > Upper Hollow","Walk back down the path from the shrine — big gold chest.",""],
+["cu21","Spine in the Sack",4,"Webbed Hollow > Upper Hollow","Random drop from floor spider cocoons (not the armed ones) all over Webbed Hollow.","R"],
+["cu22","Golden Carp",4,"Webbed Hollow > Relief of the Fallen Loong","Yellow Loong drop.","Q"],
+["cu23","Jade Moon Rabbit",4,"Webbed Hollow > Hut of Immortality","Beat Zhu Bajie twice.","A"],
+["cu24","Virtuous Bamboo Engraving",4,"Temple of the Yellow Flower > Temple Entrance","Random drop: Worm Practitioners in the courtyard past the right gate.","R"],
+["cu25","Tablet of the Three Supreme",4,"Temple of the Yellow Flower > Forest of Ferocity","Small container behind Commander Beetle.",""],
+["cu26","Tiger Tendon Belt",4,"Temple of the Yellow Flower > Court of Illumination","Random drop: Snake Sheriff in the pond — turn around, down the stairs, left.","R"],
+["cu27","Gold Sun Crow",4,"Purple Cloud Mountain > Valley of Blooms","Past the bridge and tree enemy, up the hill right, across the broken trunk — wooden chest.",""],
+["cu28","Celestial Registry Tablet",4,"Purple Cloud Mountain > Petalfall Hamlet","Facing the shrine, go right to a small gazebo.",""],
+["cu29","Preservation Orb",4,"Temple of the Yellow Flower > Court of Illumination","Past the Venom Daoist arena into the garden — container at the back by the statues.",""],
+["cu30","Amber Prayer Beads",5,"Woods of Ember > Height of Ember","After Father of Stones, the next cave, first right exit — small golden container.",""],
+["cu31","White Seashell Waist Chain",5,"Furnace Valley > Rakshasa Palace","Random drop: dual-mace enemy behind the lava left of the shrine.","R"],
+["cu32","Gold Button",5,"Furnace Valley > Rakshasa Palace","Upstairs — defeat the two huge shielded giants.",""],
+["cu33","Flame Orb",5,"Field of Fire > Cooling Slope","Rusty-Gold Cart (last of the Five Element Carts).","Q"],
+["cu34","Daoist’s Basket of Fire and Water",5,"Bishui Cave > Corridor of Fire and Ice","Bishui Golden-Eyed Beast reward.",""],
+["cu35","Waterward Orb",6,"Foothills > Verdant Path","Jiao-Loong of Waves — fly down into the lake, boss mid-lake.",""],
+["cu36","Celestial Birthstone Fragment",6,"Foothills > Verdant Path","Lang-Baw-Baw (frog 6/6).",""],
+["cu37","Wind Chime","A","Any shrine","Digital Deluxe Edition bonus — not needed.","D"]
+]},
+
+{ id:"ve", title:"Vessels", trophy:"Treasure Trove", count:4, items:[
+["ve01","Fireproof Mantle",1,"Ancient Guanyin Temple > Grand Chamber","After Elder Jinchi: hanging body in front of the third bell.","Q"],
+["ve02","Wind Tamer",2,"Kingdom of Sahi > Sandgate Bound","Beat Fuban.","Q"],
+["ve03","Weaver’s Needle",4,"Purple Cloud Mountain > Cloudnest Peak","Beat Duskveil.","Q"],
+["ve04","Plantain Fan",5,"Field of Fire > Fallen Furnace Crater","Automatic at the end of Ch5.","A"]
+]},
+
+{ id:"go", title:"Gourds", trophy:"Brewer’s Bounty (1/3)", count:11,
+  note:"Brewer’s Bounty = all Gourds + all Drinks + all Soaks. Upgrades aren’t needed except the Supreme Gourd.", items:[
+["go01","Old Gourd",1,"Starting item","Your starting Gourd — upgrade it with Luojia Vines at Shen Monkey.","A"],
+["go02","Supreme Gourd",5,"Furnace Valley > Rakshasa Palace","The Old Gourd at 9 sips + the fire in the Old Man’s room (Always Accompanied).","Q"],
+["go03","Plaguebane Gourd",2,"Sandgate Village > Bottom of the Well","Black chest behind the Mad Tiger arena (Old-Rattle Drum quest).","Q"],
+["go04","Jade Lotus Gourd",3,"Shop (Shen Monkey)","Buy from Shen Monkey from the start of Ch3.","$"],
+["go05","Fiery Gourd",3,"Valley of Ecstasy > Mindfulness Cliff","Past the shrine to the wooden boards, drop down the right side, follow the path — wooden chest.",""],
+["go06","Trailblazer’s Scarlet Gourd",3,"New Thunderclap Temple > Temple Entrance","Pre-order/Deluxe bonus — otherwise the Horse gives it at his Ch3 spot (balcony bridge).","Q"],
+["go07","Stained Jade Gourd",4,"Purple Cloud Mountain > Bounds of Deity’s Abode","The Scorpionlord drop. Before Duskveil.","M"],
+["go08","Qing-Tian Gourd","N","Shop (Shen Monkey)","NG+ only, from Shen Monkey. May require a complete Journal.","N"],
+["go09","Xiang River Goddess Gourd",4,"Webbed Hollow > The Verdure Bridge","Left past the shrine to the knife-throwing woman — room with 5 golden chests.",""],
+["go10","Immortal Blessing Gourd",5,"Shop (Shen Monkey)","Shen Monkey from Ch5; needs Buddha’s Left Hand (Baw-Li-Guhh-Baw) + Buddha’s Right Hand (boss).","$"],
+["go11","Multi-Glazed Gourd",6,"Shop (Shen Monkey)","Shen Monkey from the start of Ch6.","$"]
+]},
+
+{ id:"dr", title:"Drinks", trophy:"Brewer’s Bounty (2/3)", count:9, items:[
+["dr1","Coconut Wine",1,"Starting item","Starting drink.","A"],
+["dr2","Lambbrew",2,"Sandgate Village > Village Entrance","From the start of Ch2 take the hill path on the right (rat archers) — small altar at the end.",""],
+["dr3","Bluebridge Romance",3,"Bitter Lake > North Shore of the Bitter Lake","Follow the coast past the shrine to a temple area — golden vase in the lake on the left.",""],
+["dr4","Jade Essence",3,"Valley of Ecstasy > Towers of Karma","Left from the shrine to the corner behind a stone pillar.",""],
+["dr5","Pinebrew",4,"Shop (Shen Monkey)","Shen Monkey from the start of Ch4.","$"],
+["dr6","Worryfree Brew",4,"Webbed Hollow > The Verdure Bridge","In the village, smash the cocoons left of the purple altar, enter the house — tea kettle.",""],
+["dr7","Sunset of the Nine Skies",4,"Temple of the Yellow Flower > Court of Illumination","Stairs across from the shrine, right at the split — in front of a hut.",""],
+["dr8","Loong Balm",5,"Furnace Valley > The Emerald Hall","On the throne after Yin-Yang Fish.",""],
+["dr9","A Thousand Days Inebriation",6,"Shop (Shen Monkey)","Shen Monkey from the start of Ch6.","$"]
+]},
+
+{ id:"so", title:"Soaks", trophy:"Brewer’s Bounty (3/3)", count:27,
+  note:"27 needed incl. the NG+ one. The Deluxe soak doesn’t count. Plant-based ones respawn every 30 real minutes.", items:[
+["so01","Gall Gem",1,"Bamboo Grove > Marsh of White Mist","Free from Shen Monkey after rescuing him.","A"],
+["so02","Tender Jade Lotus",1,"Black Wind Cave > Cave Interior","Random from Jade Lotus plants in the water past the shrine.","R"],
+["so03","Laurel Buds",2,"Sandgate Village > Village Entrance","Cross the bridge, climb the rocky hills right — container by the boss gate, guarded by a shaman rat.",""],
+["so04","Steel Ginseng",2,"Fright Cliff > Squall Hideout","Random from the ginseng plant at the start of the path to Man-in-Stone.","R"],
+["so05","Iron Pellet",2,"Fright Cliff > Squall Hideout","Man-in-Stone’s shop after his quest — 6,480 Will.","$"],
+["so06","Tiger Relic",2,"Crouching Tiger Temple > Temple Entrance","Cellar route: slide down the sand slope, mid-air heavy attack to the ledge container.",""],
+["so07","Copper Pill",2,"Crouching Tiger Temple > Temple Entrance","After Tiger Vanguard, straight ahead — small golden container by a shield enemy and archer.",""],
+["so08","Goat Skull",2,"Kingdom of Sahi > Sandgate Bound","Random from Licorice (purple flowers) around the shrine.","R"],
+["so09","Celestial Lotus Seeds",3,"Shop (Shen Monkey)","Shen Monkey from the start of Ch3.","$"],
+["so10","Thunderbolt Horn",3,"Shop (Shen Monkey)","Shen Monkey from the start of Ch3.","$"],
+["so11","Stranded Loong’s Whisker",3,"Snowhill Path > Mirrormere","Cross the lake to the right — hidden island in the back-right corner, bent tree, golden container.",""],
+["so12","Breath of Fire",3,"Bitter Lake > Turtle Island","Cyan Loong drop.","Q"],
+["so13","Turtle Tear",3,"Bitter Lake > North Shore of the Bitter Lake","After the Apramana Bat + skeleton cutscene, green item below the turtle’s head.",""],
+["so14","Sweet Ice",3,"New Thunderclap Temple > Temple Entrance","Right path past the tree-punching monks, down to the Clay Vajra — golden container upstairs above it.",""],
+["so15","Goji Shoots",4,"Webbed Hollow > Upper Hollow","Up the left path to the last building upstairs in the corner.",""],
+["so16","Purple-Veined Peach Pit",4,"Webbed Hollow > The Verdure Bridge","Room with 5 golden chests (knife-throwing woman).",""],
+["so17","Deathstinger",4,"Webbed Hollow > The Verdure Bridge","Scorpion enemy as you enter the village (Worryfree Brew route).",""],
+["so18","Bee Mountain Stone",4,"Temple of the Yellow Flower > Mountain Trail","Past the first yellow-clothed enemy, left before the temple with two guards — golden container.",""],
+["so19","Fruit of Dao",4,"Temple of the Yellow Flower > Court of Illumination","Random drop: the two monks down the stairs before the shrine.","R"],
+["so20","Undying Vine",4,"Purple Cloud Mountain > Valley of Blooms","Random drop: Verdant Glow tree enemy (past the bridge, left and up).","R"],
+["so21","Double-Combed Rooster Blood",4,"Purple Cloud Mountain > Cloudnest Peak","Duskveil drop.",""],
+["so22","Mount Lingtai Seedlings",5,"Woods of Ember > Camp of Seasons","Cross two bridges, main path — golden container on the right.",""],
+["so23","Slumbering Beetle Husk",5,"Furnace Valley > The Emerald Hall","After Yin-Yang Fish, golden container on the left of the hall.",""],
+["so24","Flame Mediator",5,"Field of Fire > Ashen Pass III","Random drop: Searing-Fire (walking lava rocks) across the Field of Fire.","R"],
+["so25","Flower Primes",6,"Shop (Shen Monkey)","Shen Monkey from the start of Ch6.","$"],
+["so26","Graceful Orchid","S","Zodiac Village","Chen Loong — after you deliver all 15 seeds.","Q"],
+["so27","Guanyin’s Willow Leaf","N","Shop (Shen Monkey)","NG+ only, from Shen Monkey.","N"]
+]},
+
+{ id:"fo", title:"Formulas (Tattered Pages)", trophy:"Page Preserver", count:14, items:[
+["fo14","Evil Repelling Medicament",2,"Sandgate Village > Village Entrance","Lang-Li-Guhh-Baw drop.",""],
+["fo12","Longevity Decoction",2,"Shop (Xu Dog)","Xu Dog from the start of Ch2.","$"],
+["fo11","Tonifying Decoction",3,"Shop (Xu Dog)","Xu Dog from the start of Ch3.","$"],
+["fo06","Enhanced Tiger Subduing Pellets",3,"Bitter Lake > Precept Corridor","Continue down the slope from the shrine — hard to miss.",""],
+["fo08","Body-Fleeting Powder",3,"New Thunderclap Temple > Temple Entrance","Golden container next to the Horse (balcony bridge).",""],
+["fo13","Fortifying Medicament",3,"Shop (Xu Dog)","Given by Xu Dog during the Chen Loong questline.","Q"],
+["fo10","Essence Decoction",4,"Shop (Xu Dog)","Xu Dog from the start of Ch4.","$"],
+["fo05","Enhanced Ginseng Pellets",4,"Webbed Hollow > The Verdure Bridge","Cross the vine planks, left to the side room with several chests.",""],
+["fo07","Mirage Pill",4,"Webbed Hollow > The Verdure Bridge","Across the planks, drop at the cliff past the cocoons, up the stairs to the village.",""],
+["fo09","Life-Saving Pill",4,"Purple Cloud Mountain > Cloudnest Peak","Right of the shrine — small container.",""],
+["fo04","Loong Aura Amplification Pellets",5,"Shop (Xu Dog)","Xu Dog from the start of Ch5.","$"],
+["fo02","Septenary Heartfire Pill",5,"Bishui Cave > Purge Pit","Mid-air heavy attack to the ledge behind the shrine — chest opposite.",""],
+["fo03","Ascension Powder",6,"Foothills > Verdant Path","Automatic after Supreme Inspector.","A"],
+["fo01","Soul Remigration Pill","N","Shop (Xu Dog)","NG+ only, from Xu Dog.","N"]
+]},
+
+{ id:"sd", title:"Seeds", trophy:"Seeds to Sow", count:15,
+  note:"All but the boss-drop seeds are random from plants on a 30-minute respawn. Seeds carry over into NG+. Deliver them to Chen Loong.", items:[
+["sd07","Jade Lotus",1,"Black Wind Cave > Cave Interior","Green water lily in the right corner of the Black Wind King pond (also Ch3 lakes).","R"],
+["sd08","Licorice",2,"Kingdom of Sahi > Sandgate Bound","Purple flowers around the shrine; also left of the Temple Entrance shrine.","R"],
+["sd01","Celestial Pear",3,"Valley of Ecstasy > Brook of Bliss","Turn around, drop off the cliff at the bridge — golden-pear tree on the right, two more along the left bank.","R"],
+["sd05","Gentian",3,"Valley of Ecstasy > Forest of Felicity","Behind the shrine down the hill toward the lake; more near the lightning mage and below the left ledge.","R"],
+["sd06","Golden Lotus",3,"Pagoda Realm > Warding Temple","Drop off the cliff in front of the shrine, go right — farm the worm-like enemy moving uphill.","R"],
+["sd09","Millenium Ginseng",3,"Valley of Ecstasy > Towers of Karma","Old Ginseng Guai drop.",""],
+["sd10","Aged Ginseng",3,"Valley of Ecstasy > Towers of Karma","Old Ginseng Guai drop (same kill).",""],
+["sd15","Tree Pearl",3,"Valley of Ecstasy > Towers of Karma","White-fruit tree right behind the shrine; another right of the lake.","R"],
+["sd04","Fragrant Jade Flower",4,"Village of Lanxi > Estate of the Zhu","Bushes: right of the gate, corner after the stairs, past the Second Sister arena, and where you land in Webbed Hollow.","R"],
+["sd11","Monkey-Head Fungus",4,"Temple of the Yellow Flower > Court of Illumination","Fungiwoman drop.",""],
+["sd12","Snake-Head Mushroom",4,"Temple of the Yellow Flower > Court of Illumination","Fungiwoman drop (same kill).",""],
+["sd02","Fire Bellflower",5,"Woods of Ember > Ashen Pass I","Behind a fence ahead, up the left stairs, and past the wooden bridge in the next area.","R"],
+["sd03","Fire Date",5,"Furnace Valley > Valley Entrance","Past the shield enemy drop right; small trees around the lava lake.","R"],
+["sd13","Nine-Capped Lingzhi",5,"Field of Fire > Ashen Pass III","Nine-Capped Lingzhi Guai drop.",""],
+["sd14","Purple Lingzhi",5,"Field of Fire > Ashen Pass III","Nine-Capped Lingzhi Guai drop (same kill).",""]
+]},
+
+{ id:"md", title:"Meditation Spots", trophy:"Scenic Seeker", count:24, items:[
+["md01","The Arbor",1,"Forest of Wolves > Outside the Forest","Backtrack through the cave you came from — overlook straight ahead.",""],
+["md02","The Cavern",1,"Bamboo Grove > Back Hills","Down the path, left, into the cave (with the Horse).",""],
+["md03","The Cliff",1,"Bamboo Grove > Marsh of White Mist","After Whiteclad Noble down the wooden ramps into the dark cave, straight on before the path to Cave Interior.",""],
+["md04","The Altar",2,"Sandgate Village > Village Entrance","Jump the ravine left of the shrine, stairs on the left before the frog, under the branch, drop to a temple.",""],
+["md05","The Deadwood",2,"Fright Cliff > Rockrest Flat","Past the friendly drunk boar — big cliff-edge tree.",""],
+["md06","The Ravine",2,"Fright Cliff > Rock Clash Platform","Cliff end of the path right past the shrine (Rat Governor).",""],
+["md07","The Sculpture",2,"Crouching Tiger Temple > Temple Entrance","Up the stairs, second opening on the left before the temple gate.",""],
+["md08","The Grotto",2,"Crouching Tiger Temple > Cellar","Sandy path down, right at the fork, to the end (Old Man).",""],
+["md09","The Rock",2,"Kingdom of Sahi > Sandgate Bound","Left from the shrine to the cliff edge before the slide.",""],
+["md10","The Shade",3,"Snowhill Path > Mirrormere","Straight ahead where the frozen lake starts, by the big tree.",""],
+["md11","The Bottom",3,"Pagoda Realm > Outside the Wheel","Through the water cave and snowy path to a golden container on the right — break the fence behind it.",""],
+["md12","The Statue",3,"Bitter Lake > Precept Corridor","Straight ahead from the shrine, past the next enemy on the left.",""],
+["md13","The Track",3,"Valley of Ecstasy > Mindfulness Cliff","Where you fight Non-White the second time.",""],
+["md14","The Hall",3,"New Thunderclap Temple > Temple Entrance","Inside the Non-Pure building after beating him.",""],
+["md15","The Carvings",4,"Webbed Hollow > Pool of Shattered Jade","Directly in front of the shrine at the pond.",""],
+["md16","The Tree",4,"Webbed Hollow > Middle Hollow","Turn around from the shrine — at the cliff.",""],
+["md17","Cave Depths",4,"Webbed Hollow > Lower Hollow","Left into the tunnel, squeeze through the crack in the left wall.",""],
+["md18","The Height",4,"Temple of the Yellow Flower > Forest of Ferocity","Left of the shrine at the cliff.",""],
+["md19","The Pines",4,"Temple of the Yellow Flower > Temple Entrance","Straight into the temple, right through the gate.",""],
+["md20","The Ledge",4,"Purple Cloud Mountain > Valley of Blooms","Into the pool left of the shrine, left through the woods to the torii, hill path on its left — top, by a hanging bridge.",""],
+["md21","The Relief",5,"Woods of Ember > Camp of Seasons","Cross the next two bridges, stairs on the right.",""],
+["md22","The Buddha",5,"Furnace Valley > The Emerald Hall","End of the hall opposite the throne, after Yin-Yang Fish.",""],
+["md23","The Crag",5,"Field of Fire > Ashen Pass III","Right of the shrine, jump over the rocks.",""],
+["md24","The Screen",5,"Bishui Cave > Purge Pit","Down the path from the first secret-area shrine, on the left.",""]
+]},
+
+{ id:"pi", title:"Celestial Pills", trophy:"Medicine Meal", count:15,
+  note:"5 of each type. Only pills picked up from containers count (not Xu Dog upgrades). Progress carries into NG+.", items:[
+["pi01","Celestial Jade Lotus Pill",1,"Forest of Wolves > Guanyin Temple","After Lingxuzi, next temple on the left.",""],
+["pi02","Celestial Taiyi Pill",1,"Bamboo Grove > Marsh of White Mist","Golden case next to “The Cliff” meditation spot in the dark cave.",""],
+["pi03","Celestial Nonary Pill",1,"Black Wind Cave > Outside the Cave","Main path toward Bodhi Peak — small golden chest on the left before the stairs.",""],
+["pi04","Celestial Nonary Pill",2,"Sandgate Village > Valley of Despair","Right path into the cave, broken pillar, squeeze through, straight on past Swift Bats.",""],
+["pi05","Celestial Taiyi Pill",2,"Fright Cliff > Rock Clash Platform","Directly after the shrine — small gold chest on the main path.",""],
+["pi06","Celestial Jade Lotus Pill",2,"Crouching Tiger Temple > Temple Entrance","Arena statue → hatch (needs Sterness of Stone) — golden container on the left.",""],
+["pi07","Celestial Taiyi Pill",3,"Pagoda Realm > Outside the Wheel","Through the water cave — golden container right of the main path.",""],
+["pi08","Celestial Jade Lotus Pill",3,"Bitter Lake > Turtle Island","Turn around, drop the cliffs to the bottom, southern edge of the island.",""],
+["pi09","Celestial Nonary Pill",3,"New Thunderclap Temple > Temple Entrance","From the Horse’s bridge jump off the left side into the frozen pond (guarded).",""],
+["pi10","Celestial Jade Lotus Pill",4,"Village of Lanxi > Estate of the Zhu","After Second Sister, back table in the next area.",""],
+["pi11","Celestial Taiyi Pill",4,"Webbed Hollow > Cliff of Oblivion","After Buddha’s Right Hand cross the broken hand and go up the left side.",""],
+["pi12","Celestial Nonary Pill",4,"Temple of the Yellow Flower > Court of Illumination","Purple Altars quest reward (before Hundred-Eyed Daoist Master).","M"],
+["pi13","Celestial Jade Lotus Pill",5,"Woods of Ember > Ashen Pass II","Turn around from the shrine — container directly across.",""],
+["pi14","Celestial Taiyi Pill",5,"Furnace Valley > Rakshasa Palace","Right of the shrine — small golden container.",""],
+["pi15","Celestial Nonary Pill",5,"Bishui Cave > Purge Pit","After Top Takes Bottom, first alcove on the left.",""]
+]},
+
+{ id:"we", title:"Staffs & Spears", trophy:"Staffs and Spears", count:20,
+  note:"20 needed. 3 can only be crafted in NG+. Most are crafted at shrines once the boss material drops.", items:[
+["we21","Willow Wood Staff",1,"Starting item","Starting weapon.","A"],
+["we18","Twin Serpents Staff",1,"Bamboo Grove > Marsh of White Mist","Whiteclad Noble → Jade Fang.",""],
+["we20","Wind Bear Staff",1,"Black Wind Cave > Bodhi Peak","Black Bear Guai → Flame Ebongold.",""],
+["we11","Loongwreathe Staff",2,"Fright Cliff > Rockrest Flat","Red Loong (Thunder Tail) + Black Loong (Thunderbone).","Q"],
+["we06","Cloud-Patterned Stone Staff",2,"Fright Cliff > Rockrest Flat","Shigandang → Heart of Stone (6 Buddha’s Eyeballs).","Q"],
+["we12","Rat Sage Staff",2,"Crouching Tiger Temple > Cellar","Yellow Wind Sage → Samadhi Wind Agate.",""],
+["we10","Kang-Jin Staff",3,"Snowhill Path > Mirrormere","Kang-Jin Loong → Starlit Cloud-Bidden Antler.",""],
+["we05","Chu-Bai Spear",3,"Pagoda Realm > Lower Pagoda","Prisoner quest → Chubai Spearhead.","Q"],
+["we08","Golden Loong Staff",3,"Bitter Lake > Turtle Island","Cyan Loong (Mountain-Shaking Claw) + Yellow Loong (Sea-Supporting Tendon).","Q"],
+["we14","Spikeshaft Staff",3,"New Thunderclap Temple > Mahavira Hall","Yellowbrow → Cosmo Radiance.",""],
+["we04","Chitin Staff",4,"Village of Lanxi > Estate of the Zhu","The Second Sister → Venomous Hair.",""],
+["we13","Spider Celestial Staff",4,"Webbed Hollow > The Gathering Cave","Violet Spider → Spider Leg.",""],
+["we19","Visionary Centipede Staff",4,"Temple of the Yellow Flower > Court of Illumination","Hundred-Eyed Daoist Master → Golden Glowing Eye.",""],
+["we15","Staff of Blazing Karma",5,"Field of Fire > Fallen Furnace Crater","3 Samadhi Fire Crystals: Flint Chief, Flint Vanguard, Mother of Flamlings.",""],
+["we02","Bishui Beast Staff",5,"Bishui Cave > Corridor of Fire and Ice","Bishui Golden-Eyed Beast → Bishui Beast Bit.",""],
+["we09","Jingubang",6,"Water Curtain Cave","Story (Guardian of Gear).","A"],
+["we17","Tri-Point Double-Edged Spear","S","Pagoda Realm > The Great Pagoda","Secret ending reward.","Q"],
+["we01","Adept-Spine Shooting Fuban Staff","N","New Game+","4 Sky-Piercing Horns (Fuban, Scorpionlord, Hundred-Eyed Daoist Master + Fuban again in NG+).","N"],
+["we16","Stormflash Loong Staff","N","New Game+","9 Loong Pearls, upgrade of the Kang-Jin Staff.","N"],
+["we07","Dark Iron Staff","N","New Game+","Bull King’s Iron Horns, upgrade of the Staff of Blazing Karma.","N"],
+["we03","Bronze Clad Staff","A","Any shrine","Deluxe Edition only — not needed.","D"]
+]},
+
+{ id:"ar", title:"Armor", trophy:"Mantled with Might", count:74,
+  note:"74 needed (the 4 Folk Opera pieces are Deluxe-only). One playthrough can’t pay for everything — finish in NG+.", items:[
+["ar23","Tiger Hide Loincloth (body)",1,"Starting item","Starting armor.","A"],
+["ar43","Cotton Wristwraps (arms)",1,"Starting item","Starting armor.","A"],
+["ar73","Cotton Legwraps (legs)",1,"Starting item","Starting armor.","A"],
+["ar03","Grey Wolf Mask (head)",1,"Forest of Wolves > Guanyin Temple","Lingxuzi reward.",""],
+["ar04","Pilgrim’s Headband (head)",1,"Forest of Wolves > Guanyin Temple","Craft at a Ch1 shrine.",""],
+["ar24","Pilgrim’s Garb (body)",1,"Forest of Wolves > Guanyin Temple","Craft at a Ch1 shrine.",""],
+["ar44","Pilgrim’s Wristwraps (arms)",1,"Forest of Wolves > Guanyin Temple","Craft at a Ch1 shrine.",""],
+["ar74","Pilgrim’s Legwraps (legs)",1,"Forest of Wolves > Guanyin Temple","Craft at a Ch1 shrine.",""],
+["ar25","Serpentscale Battlerobe (body)",1,"Bamboo Grove > Marsh of White Mist","Craft after Whiteclad Noble.",""],
+["ar45","Serpentscale Bracers (arms)",1,"Bamboo Grove > Marsh of White Mist","Craft after Whiteclad Noble.",""],
+["ar75","Serpentscale Gaiters (legs)",1,"Bamboo Grove > Marsh of White Mist","Craft after Whiteclad Noble.",""],
+["ar60","Guanyin’s Prayer Beads (arms)",1,"Ancient Guanyin Temple > Grand Chamber","Chest right of the shrine.",""],
+["ar05","Bronze Monkey Mask (head)",1,"Ancient Guanyin Temple > Grand Chamber","Craft after Elder Jinchi.",""],
+["ar26","Bronze Brocade Battlerobe (body)",1,"Ancient Guanyin Temple > Grand Chamber","Craft after Elder Jinchi.",""],
+["ar46","Bronze Armguard (arms)",1,"Ancient Guanyin Temple > Grand Chamber","Craft after Elder Jinchi.",""],
+["ar76","Bronze Buskins (legs)",1,"Ancient Guanyin Temple > Grand Chamber","Craft after Elder Jinchi.",""],
+["ar27","Ebongold Silk Robe (body)",2,"Sandgate Village > Village Entrance","Craft once Ch1 is finished.",""],
+["ar47","Ebongold Armguard (arms)",2,"Sandgate Village > Village Entrance","Craft once Ch1 is finished.",""],
+["ar77","Ebongold Gaiters (legs)",2,"Sandgate Village > Village Entrance","Craft once Ch1 is finished.",""],
+["ar06","Galeguard Beast Mask (head)",2,"Fright Cliff > Rockrest Flat","Craft after Stone Vanguard.",""],
+["ar28","Galeguard Beastmaw Armor (body)",2,"Fright Cliff > Rockrest Flat","Craft after Stone Vanguard.",""],
+["ar48","Galeguard Bracers (arms)",2,"Fright Cliff > Rockrest Flat","Craft after Stone Vanguard.",""],
+["ar78","Galeguard Greaves (legs)",2,"Fright Cliff > Rockrest Flat","Craft after Stone Vanguard.",""],
+["ar07","Snout Mask (head)",2,"Fright Cliff > Rockrest Flat","Yellow-Robed Squire drop (Drunken Boar questline).","Q"],
+["ar08","Monastic Insect Hat (head)",2,"Kingdom of Sahi > Sandgate Bound","Craft after Fuban.","Q"],
+["ar50","Insect Spike Bracers (arms)",2,"Kingdom of Sahi > Sandgate Bound","Craft after Fuban.","Q"],
+["ar79","Insect Spike Gaiters (legs)",2,"Kingdom of Sahi > Sandgate Bound","Craft after Fuban.","Q"],
+["ar29","Ochre Battlerobe (body)",3,"Snowhill Path > Frost-Clad Path","Craft from the first Ch3 shrine.",""],
+["ar51","Ochre Armguard (arms)",3,"Snowhill Path > Frost-Clad Path","Craft from the first Ch3 shrine.",""],
+["ar80","Ochre Greaves (legs)",3,"Snowhill Path > Frost-Clad Path","Craft from the first Ch3 shrine.",""],
+["ar30","Loongscale Battlerobe (body)",3,"Pagoda Realm > Warding Temple","Craft after Kang-Jin Star.",""],
+["ar52","Loongscale Armguard (arms)",3,"Pagoda Realm > Warding Temple","Craft after Kang-Jin Star.",""],
+["ar81","Loongscale Greaves (legs)",3,"Pagoda Realm > Warding Temple","Craft after Kang-Jin Star.",""],
+["ar31","Ginseng Cape (body)",3,"Valley of Ecstasy > Towers of Karma","Old Ginseng Guai drop.",""],
+["ar09","See No Evil (head)",3,"New Thunderclap Temple > Temple Entrance","Random drop from Blind Monks.","R"],
+["ar53","Vajra Armguard (arms)",3,"New Thunderclap Temple > Temple Entrance","Random drop from the Clay Vajra.","R"],
+["ar10","Iron Horned Helm (head)",3,"Zodiac Village","Craft after beating Yin Tiger; needs Duskveil’s Horn (Ch4 secret area).","Q"],
+["ar32","Iron-Tough Armor (body)",3,"Zodiac Village","Craft after beating Yin Tiger.","Q"],
+["ar54","Iron-Tough Gauntlets (arms)",3,"Zodiac Village","Craft after beating Yin Tiger.","Q"],
+["ar82","Iron-Tough Greaves (legs)",3,"Zodiac Village","Craft after beating Yin Tiger.","Q"],
+["ar11","Golden Mask of Fury (head)",4,"Village of Lanxi > Estate of the Zhu","Craft from the first Ch4 shrine.",""],
+["ar33","Golden Embroidered Shirt (body)",4,"Village of Lanxi > Estate of the Zhu","Craft from the first Ch4 shrine.",""],
+["ar55","Golden Armguard (arms)",4,"Village of Lanxi > Estate of the Zhu","Craft from the first Ch4 shrine.",""],
+["ar83","Golden Greaves (legs)",4,"Village of Lanxi > Estate of the Zhu","Craft from the first Ch4 shrine.",""],
+["ar49","Venomous Armguard (arms)",4,"Webbed Hollow > Pool of Shattered Jade","Break all 4 of Venom Daoist’s arms before killing him (first fight).","M"],
+["ar13","Locust Antennae Mask (head)",4,"Webbed Hollow > Upper Hollow","Random drop from the locust/grasshopper enemy that spawns from a cocoon.","R"],
+["ar12","Non-Pure Broken Mask (head)",4,"Webbed Hollow > Hut of Immortality","Craft after Zhu Bajie.",""],
+["ar34","Non-Pure Armor of Coiling Loong (body)",4,"Webbed Hollow > Hut of Immortality","Craft after Zhu Bajie.",""],
+["ar56","Non-Pure Gauntlets (arms)",4,"Webbed Hollow > Hut of Immortality","Craft after Zhu Bajie.",""],
+["ar84","Non-Pure Greaves (legs)",4,"Webbed Hollow > Hut of Immortality","Craft after Zhu Bajie.",""],
+["ar35","Venomous Sting Insect Armor (body)",4,"Purple Cloud Mountain > Bounds of Deity’s Abode","Craft after the Scorpionlord — beat him before Duskveil.","M"],
+["ar16","Centipede Hat of Transcendence (head)",5,"Woods of Ember > Ashen Pass I","Craft once Ch4 is finished.",""],
+["ar36","Centipede Qiang-Jin Armor (body)",5,"Woods of Ember > Ashen Pass I","Craft once Ch4 is finished.",""],
+["ar57","Centipede Spiked Armguard (arms)",5,"Woods of Ember > Ashen Pass I","Craft once Ch4 is finished.",""],
+["ar85","Centipede Greaves of Transcendence (legs)",5,"Woods of Ember > Ashen Pass I","Craft once Ch4 is finished.",""],
+["ar15","Skull of Turtle Treasure (head)",5,"Woods of Ember > Height of Ember","Rare random drop: Turtle Treasure enemies (big mouse-masked enemy past the gate; also Ch3 Longevity Road).","R"],
+["ar37","Yin-Yang Daoist Robe (body)",5,"Furnace Valley > The Emerald Hall","After the Keeper of the Flaming Mountain.","A"],
+["ar14","Earth Spirit Cap (head)",5,"Field of Fire > Ashen Pass III","Nine-Capped Lingzhi Guai drop.",""],
+["ar17","Bull King’s Mask (head)",5,"Bishui Cave > Corridor of Fire and Ice","Craft with Bull King’s Iron Horns (Bishui boss + Bishui chest). Limited per run — finish in NG+.",""],
+["ar38","Bull King’s Shan Wen Armor (body)",5,"Bishui Cave > Corridor of Fire and Ice","Bull King’s Iron Horns — see Mask.",""],
+["ar58","Bull King’s Bracers (arms)",5,"Bishui Cave > Corridor of Fire and Ice","Bull King’s Iron Horns — see Mask.",""],
+["ar86","Bull King’s Greaves (legs)",5,"Bishui Cave > Corridor of Fire and Ice","Bull King’s Iron Horns — see Mask.",""],
+["ar18","Yaksha Mask of Outrage (head)",6,"Foothills > Verdant Path","Craft once Ch5 is finished.",""],
+["ar39","Embroidered Shirt of Outrage (body)",6,"Foothills > Verdant Path","Craft once Ch5 is finished.",""],
+["ar59","Yaksha Bracers of Outrage (arms)",6,"Foothills > Verdant Path","Craft once Ch5 is finished.",""],
+["ar87","Yaksha Greaves of Outrage (legs)",6,"Foothills > Verdant Path","Craft once Ch5 is finished.",""],
+["ar01","Golden Feng-Tail Crown — Heaven’s Equal (head)",6,"Foothills > Mantis-Catching Swamp","Feng-Tail General.","A"],
+["ar21","Gold Suozi Armor — Heaven’s Equal (body)",6,"Foothills > Rhino Watch Slope","Gold Armored Rhino.","A"],
+["ar41","Dian-Cui Loong-Soaring Bracers — Heaven’s Equal (arms)",6,"Foothills > Mantis-Catching Swamp","Emerald-Armed Mantis.","A"],
+["ar71","Lotus Silk Cloudtreaders — Heaven’s Equal (legs)",6,"Foothills > Deer Sight Forest","Cloudtreading Deer.","A"],
+["ar02","Golden Feng-Tail Crown — Fortune’s Favor (head)",6,"Foothills > Verdant Path","Small golden chest on the mountain (fly there). Counts separately.",""],
+["ar22","Gold Suozi Armor — Fortune’s Favor (body)",6,"Foothills > Verdant Path","Same mountain chest.",""],
+["ar42","Dian-Cui Loong-Soaring Bracers — Fortune’s Favor (arms)",6,"Foothills > Verdant Path","Same mountain chest.",""],
+["ar72","Lotus Silk Cloudtreaders — Fortune’s Favor (legs)",6,"Foothills > Verdant Path","Same mountain chest.",""],
+["ar19","Folk Opera Mask (head)","A","Any shrine","Deluxe Edition only — not needed.","D"],
+["ar40","Folk Opera Almsgiving Armor (body)","A","Any shrine","Deluxe Edition only — not needed.","D"],
+["ar61","Folk Opera Leather Bracers (arms)","A","Any shrine","Deluxe Edition only — not needed.","D"],
+["ar88","Folk Opera Buskins (legs)","A","Any shrine","Deluxe Edition only — not needed.","D"]
+]},
+
+{ id:"vi", title:"Luojia Fragrant Vines", trophy:"supports Always Accompanied", count:15, helper:true,
+  note:"Gourd upgrades at Shen Monkey. 9 into the starting Gourd unlock the Supreme Gourd; 12 cover everything. Not a trophy list.", items:[
+["vi01","Vine 1",1,"Bamboo Grove > Marsh of White Mist","On a tree directly left of the shrine.",""],
+["vi02","Vine 2",2,"Yellow Wind Formation > Windrest Bridge","Through the village, beat the 3 red-robed rats, through the wooden gate, right — before Windrest Hamlet.",""],
+["vi03","Vine 3",2,"Yellow Wind Formation > Windseal Gate","Path left of the shrine, guarded by Gore-Eye Daoist.",""],
+["vi04","Vine 4",3,"Shop (Shen Monkey)","Buy from Shen Monkey from the start of Ch3.","$"],
+["vi05","Vine 5",3,"Pagoda Realm > Outside the Wheel","Cave next to the shrine, left corner.",""],
+["vi06","Vine 6",3,"Bitter Lake > North Shore of the Bitter Lake","End of the shore, left up the path, left side area with 3 enemies before the cave.",""],
+["vi07","Vine 7",3,"Valley of Ecstasy > Longevity Road","Down the snowy slope left of the shrine, always the leftmost path by the cliffs (two bird enemies).",""],
+["vi08","Vine 8",4,"Shop (Shen Monkey)","Buy from Shen Monkey from the start of Ch4.","$"],
+["vi09","Vine 9",4,"Webbed Hollow > The Verdure Bridge","On a tree as you enter the village (Scorpion Prince guards it).",""],
+["vi10","Vine 10",4,"Webbed Hollow > Relief of the Fallen Loong","Right edge just before the hidden shrine, after the cocoon beam.",""],
+["vi11","Vine 11",4,"Temple of the Yellow Flower > Mountain Trail","Turn around from the shrine — in plain sight.",""],
+["vi12","Vine 12",4,"Purple Cloud Mountain > Valley of Blooms","Drop down left of the shrine where the water is; tree past the water.",""],
+["vi13","Vine 13",5,"Shop (Shen Monkey)","Buy from Shen Monkey from the start of Ch5.","$"],
+["vi14","Vine 14",5,"Woods of Ember > Height of Ember","Past Father of Stones, left path along the cliff to the end.",""],
+["vi15","Vine 15",5,"Field of Fire > Fallen Furnace Crater","Backtrack down the rolling-ball path, left through the broken barrier — left corner before Flint Vanguard.",""]
+]},
+
+{ id:"ey", title:"Buddha’s Eyeballs", trophy:"supports Shigandang (Journal)", count:6, helper:true,
+  note:"Bring all six to the faced rock in the Stone Vanguard arena (Rockrest Flat). Directions from PSNProfiles.", items:[
+["ey1","Eyeball 1",2,"Fright Cliff > Squall Hideout","The Buddha head with glowing eyes in front of the shrine.",""],
+["ey2","Eyeball 2",2,"Fright Cliff > Squall Hideout","From head 1 turn back to the right-hand wooden stairs (rock throwers) — above the stairs.",""],
+["ey3","Eyeball 3",2,"Fright Cliff > Squall Hideout","From head 2 drop down, cross the bridge — behind the moving rock enemy.",""],
+["ey4","Eyeball 4",2,"Fright Cliff > Squall Hideout","Shortly before head 3: narrow walkway into a cave — left corner of the cave.",""],
+["ey5","Eyeball 5",2,"Fright Cliff > Rockrest Flat","Cave in front of the shrine, right toward Mother of Stones — exit on the right just before the end.",""],
+["ey6","Eyeball 6",2,"Fright Cliff > Rockrest Flat","Left of the shrine.",""]
+]},
+
+{ id:"sk", title:"The Four Skandhas", trophy:"supports Giant Shigandang (Journal)", count:4, helper:true,
+  note:"Needed to summon Giant Shigandang in Ch6. Directions from PSNProfiles.", items:[
+["sk1","Skandha of Form",1,"Forest of Wolves > Front Hills","Through the gate, drop into the river, follow it to the end — Buddha head by the monkey.",""],
+["sk2","Skandha of Feeling",2,"Fright Cliff > Rockrest Flat","Shigandang drop.","Q"],
+["sk3","Skandha of Thought",3,"Valley of Ecstasy > Mindfulness Cliff","Climb the fallen pillar in front of the shrine, all the stairs on the left, through the cave — monkey at the top.",""],
+["sk4","Skandha of Choice",4,"Webbed Hollow > The Purifying Spring","Through the crack, left, end of the pool — by the monkey.",""]
+]}
+];
+
+const LEDGER = LEDGER_JOURNAL.concat(LEDGER_GEAR);
+
+</script>
+<script>
+"use strict";
+// ————— icons —————
+const IC = {
+  check:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg>',
+  cup:'<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 1.5h8v1.2h2.3v1.6c0 1.9-1.3 3.3-3 3.6-.5 1.2-1.4 2-2.5 2.3v1.6h2.2V14H5v-2.2h2.2v-1.6C6.1 9.9 5.2 9.1 4.7 7.9 3 7.6 1.7 6.2 1.7 4.3V2.7H4V1.5zm-1.1 2.4v.4c0 1 .6 1.9 1.4 2.3-.2-.7-.3-1.5-.3-2.3v-.4H2.9zm10.2 0H12v.4c0 .8-.1 1.6-.3 2.3.8-.4 1.4-1.3 1.4-2.3v-.4z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'
+};
+const JUMP = {orders:"Orders",pro:"Prologue",ch1:"Ch 1",ch2:"Ch 2",ch3:"Ch 3",ch4:"Ch 4",ch5:"Ch 5",ch5b:"After Ch 5",ch6:"Ch 6",clean:"Cleanup",ngp:"NG+"};
+const FLAG = {M:"Missable",N:"NG+ only",R:"RNG",$:"Shop",Q:"Quest",A:"Auto",D:"Deluxe"};
+const FLAGCLS = {M:"M",N:"N",R:"R",$:"S",Q:"Q",A:"C",D:"D"};
+
+// ————— model —————
+const ROWS = [], ROW = {}, PHASE_OF = {};
+CAMPAIGN.forEach(ph => ph.rows.forEach(r => { ROWS.push(r); ROW[r.id] = r; PHASE_OF[r.id] = ph; }));
+const ITEM = {};            // id -> {name, ch, area, d, fl, cat}
+const REQUIRED = new Set(); // unique required collectible ids (no DLC, no helper lists)
+LEDGER.forEach(cat => cat.items.forEach(([id,name,ch,area,d,fl]) => {
+  if(!ITEM[id]) ITEM[id] = {id,name,ch:String(ch),area,d,fl,cat};
+  if(!fl.includes("D") && !cat.helper) REQUIRED.add(id);
+}));
+const MISS_ROWS = ROWS.filter(r => r.tag === "MISSABLE");
+const AREA_IX = {}; AREA_ORDER.forEach((a,i) => AREA_IX[a] = i);
+
+// ————— state —————
+const KEY = "bmw-ledger-v1";
+const state = { c:{}, ui:{ tab:"road", lens:"trophy", fRoad:false, fComp:false, col:{}, theme:"auto", intro:false, q:"" } };
+let storageOK = true;
+try{
+  const raw = localStorage.getItem(KEY);
+  if(raw){ const p = JSON.parse(raw); if(p && p.c) state.c = p.c; if(p && p.ui) Object.assign(state.ui, p.ui, {q:""}); }
+}catch(e){ storageOK = false; }
+function save(){
+  try{ localStorage.setItem(KEY, JSON.stringify({c:state.c, ui:Object.assign({}, state.ui, {q:""})})); storageOK = true; }
+  catch(e){ storageOK = false; }
+}
+const open = new Set();      // expanded rows (session only)
+let settingsOpen = false, resetArmed = 0;
+
+function applyTheme(){
+  const t = state.ui.theme;
+  if(t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+  else document.documentElement.removeAttribute("data-theme");
+  const dark = t === "dark" || (t !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+  document.querySelector('meta[name="theme-color"]').setAttribute("content", dark ? "#100E0B" : "#F3ECDF");
+  const cl = getComputedStyle(document.documentElement).getPropertyValue("--gold").trim() || "#D4A94E";
+  document.documentElement.style.setProperty("--clouds", cloudsURL(cl));
+}
+function cloudsURL(col){
+  const c = encodeURIComponent(col);
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 90'%3E%3Cg fill='none' stroke='${c}' stroke-opacity='.22' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M18 62c0-12 10-20 22-20 4-14 18-22 32-18 8-12 26-14 36-4 10-6 24-2 28 10 12 0 20 9 20 20'/%3E%3Cpath d='M58 62c0-7 6-12 12-12s12 5 12 12-5 10-10 10-8-4-8-8 3-6 6-6'/%3E%3Cpath d='M112 50c0-6 5-10 10-10s10 4 10 10-4 8-8 8-6-3-6-6'/%3E%3Cpath d='M150 30c6-10 22-12 30-2 10-4 22 2 24 12 10 1 18 9 18 18'/%3E%3Cpath d='M190 52c0-6 5-10 10-10s10 4 10 10-4 8-8 8-6-3-6-6'/%3E%3Cpath d='M6 76h240'/%3E%3C/g%3E%3C/svg%3E")`;
+}
+
+// ————— progress —————
+const isOn = id => !!state.c[id];
+function counts(){
+  const miss = MISS_ROWS.filter(r => isOn(r.id)).length;
+  const road = ROWS.filter(r => isOn(r.id)).length;
+  let coll = 0; REQUIRED.forEach(id => { if(isOn(id)) coll++; });
+  return {miss, road, coll};
+}
+function catCount(cat){
+  let t = 0, d = 0;
+  cat.items.forEach(([id,, , , ,fl]) => { if(fl.includes("D")) return; t++; if(isOn(id)) d++; });
+  return [d,t];
+}
+function phaseCount(ph){ const d = ph.rows.filter(r => isOn(r.id)).length; return [d, ph.rows.length]; }
+
+// ————— helpers —————
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+const plain = s => String(s).replace(/<[^>]+>/g,"");
+function trophyHTML(t){ return t ? `<span class="tr">${IC.cup}${esc(t)}</span>` : ""; }
+function shortCh(ch){ return ch==="A"?"Start":ch==="S"?"Post-game":ch==="N"?"NG+":"Ch"+ch; }
+
+// ————— render —————
+function render(){
+  applyTheme();
+  const app = document.getElementById("app");
+  const k = counts(), pct = Math.round(100 * k.miss / MISS_ROWS.length);
+  let h = `<header>
+    <button class="gear${settingsOpen?" on":""}" data-act="gear" aria-label="Settings" aria-expanded="${settingsOpen}">${IC.gear}</button>
+    <div class="kicker"><span>Black Myth: Wukong</span><span>PS5 Platinum</span><span>Build ${esc(BUILD)}</span></div>
+    <div class="titleRow"><div class="seal" aria-hidden="true">悟</div>
+      <h1>Destined One’s Ledger<small>Chronological roadmap · every missable flagged</small></h1></div>
+    <div class="readout">Missables secured <strong data-cnt="miss">${k.miss}/${MISS_ROWS.length}</strong></div>
+    <div class="bar"><div data-bar style="width:${pct}%"></div></div>
+    <div class="stats"><span>Roadmap <b data-cnt="road">${k.road}/${ROWS.length}</b></span>
+      <span>Collectibles <b data-cnt="coll">${k.coll}/${REQUIRED.size}</b></span>
+      <span class="${storageOK?"saved":""}">${storageOK ? "Saved ✓ on this device" : "Not saving — private browsing?"}</span></div>
+  </header>`;
+
+  if(settingsOpen) h += settingsHTML();
+  if(!state.ui.intro) h += introHTML();
+
+  h += `<nav class="tabs" role="tablist">
+    <button role="tab" aria-selected="${state.ui.tab==="road"}" class="${state.ui.tab==="road"?"on":""}" data-act="tab" data-v="road">Roadmap</button>
+    <button role="tab" aria-selected="${state.ui.tab==="comp"}" class="${state.ui.tab==="comp"?"on":""}" data-act="tab" data-v="comp">Completionist</button></nav>`;
+
+  h += state.ui.tab === "road" ? roadHTML() : compHTML();
+  h += `<div class="foot">Compiled ${esc(COMPILED)} from PowerPyx and PSNProfiles guides. Fan-made, not affiliated with Game Science. Light spoilers: names of bosses, NPCs and places — no plot.</div>`;
+  app.innerHTML = h;
+  const s = document.getElementById("q");
+  if(s && state.ui.q){ s.value = state.ui.q; }
+}
+
+function introHTML(){
+  return `<div class="card"><div class="lab">First visit</div><h2>What this is</h2>
+  <p>A platinum companion for <b>Black Myth: Wukong</b>. The <b>Roadmap</b> walks the whole run in play order — every missable and point of no return flagged — and the <b>Completionist</b> tab itemises every collectible, by trophy or by chapter.</p>
+  <p><b>Light spoilers.</b> Rows name bosses, NPCs, places and items — no story.</p>
+  <p><b>Everything stays on this device.</b> Ticks are saved in this browser’s storage; nothing is sent anywhere.</p>
+  <p><b>Best on your Home Screen.</b> In Safari: Share → <b>Add to Home Screen</b>. It then opens full-screen and works offline. A Home Screen app keeps its own progress, separate from Safari — install it before you start ticking.</p>
+  <button class="btn solid" data-act="intro-ok">Got it</button></div>`;
+}
+function settingsHTML(){
+  const t = state.ui.theme;
+  return `<div class="card"><div class="lab">Settings</div>
+  <h2>Appearance</h2>
+  <div class="setrow"><div class="seg" role="group" aria-label="Theme">
+    <button class="${t==="auto"?"on":""}" data-act="theme" data-v="auto">Auto</button>
+    <button class="${t==="dark"?"on":""}" data-act="theme" data-v="dark">Ink (dark)</button>
+    <button class="${t==="light"?"on":""}" data-act="theme" data-v="light">Parchment (light)</button></div></div>
+  <div class="setnote">Auto follows your iPad’s Light/Dark setting.</div>
+  <h2>Progress</h2>
+  <div class="setrow"><button class="btn danger${resetArmed?" armed":""}" data-act="reset">${resetArmed?"Tap again to erase every tick":"Reset all progress"}</button>
+  <button class="btn" data-act="intro-open">Show intro</button></div>
+  <div class="setnote">Progress is stored only in this browser on this device.</div>
+  <h2>Sources</h2>
+  <p class="setnote" style="margin:0">Compiled ${esc(COMPILED)} from the <a href="https://www.powerpyx.com/black-myth-wukong-trophy-guide-roadmap/" target="_blank" rel="noopener">PowerPyx roadmap</a> and its location guides, cross-checked with the <a href="https://psnprofiles.com/guide/20292-black-myth-wukong-trophy-guide" target="_blank" rel="noopener">PSNProfiles guide</a>. Where they disagree, the safer instruction is used.</p></div>`;
+}
+
+// ——— roadmap ———
+function nextRow(){ return ROWS.find(r => !isOn(r.id) && r.tag !== "RULE") || ROWS.find(r => !isOn(r.id)); }
+function nextHTML(){
+  const r = nextRow();
+  if(!r) return `<div class="next" style="cursor:default"><div><div class="lab">Roadmap complete</div><div class="t">Every row ticked. 白金 — Platinum.</div></div></div>`;
+  return `<button class="next" data-act="next"><div><div class="lab">Next up</div><div class="t">${esc(plain(r.t))}</div>
+    <div class="s">${esc(PHASE_OF[r.id].title)}${r.loc && r.loc!==PHASE_OF[r.id].title?" · "+esc(r.loc):""}</div></div><span class="go">›</span></button>`;
+}
+function roadHTML(){
+  const f = state.ui.fRoad;
+  let h = `<p class="lede">The whole run in play order. Points of no return are in red at the top of each chapter.</p>`;
+  h += `<div class="tools"><button class="chip${f?" on":""}" data-act="fRoad"><span class="dot"></span>Missables &amp; warnings only</button></div>`;
+  h += `<div data-next>${nextHTML()}</div>`;
+  h += `<div class="jump">${CAMPAIGN.map(ph => { const [d,t] = phaseCount(ph); return `<button class="${d===t?"full":""}" data-act="jump" data-v="${ph.id}" data-jcnt="${ph.id}">${esc(JUMP[ph.id] || ph.title)}<span class="n">${d}/${t}</span></button>`; }).join("")}</div>`;
+  CAMPAIGN.forEach(ph => {
+    const closed = !!state.ui.col["p:"+ph.id];
+    const rows = f ? ph.rows.filter(r => r.tag==="MISSABLE" || r.tag==="WARNING") : ph.rows;
+    if(f && !rows.length) return;
+    const [d,t] = phaseCount(ph);
+    h += `<section id="s-${ph.id}"><button class="sechead${closed?" closed":""}" data-act="col" data-v="p:${ph.id}" aria-expanded="${!closed}">
+      <div><span class="k"><span class="caret">▾</span> ${esc(ph.kicker)}</span><h3>${esc(ph.title)}</h3></div>
+      <span class="cnt${d===t?" full":""}" data-cnt="p:${ph.id}">${d}/${t}</span></button>`;
+    if(!closed){
+      if(ph.intro) h += `<div class="intro">${ph.intro}</div>`;
+      if(ph.warn) h += `<div class="ponr">⚠ ${esc(ph.warn)}</div>`;
+      h += `<div>${rows.map(rowHTML).join("")}</div>`;
+    }
+    h += `</section>`;
+  });
+  return h;
+}
+function rowHTML(r){
+  const key = "r:"+r.id, on = isOn(r.id), op = open.has(key);
+  const also = (r.links||[]).filter(l => ITEM[l]).map(l => `${esc(ITEM[l].name)} <span style="opacity:.7">(${esc(ITEM[l].cat.title.replace("Journal · ","Journal: "))})</span>`);
+  return `<div class="row${on?" done":""}${op?" open":""}${r.tag==="WARNING"?" warnrow":""}" data-id="${r.id}" data-key="${key}">
+    <button class="cb" data-act="check" data-id="${r.id}" role="checkbox" aria-checked="${on}" aria-label="${esc(plain(r.t))}">${IC.check}</button>
+    <div class="main"><button class="line1" data-act="exp" data-key="${key}" aria-expanded="${op}">
+      <span class="tag t-${r.tag}">${r.tag}</span><span class="ttl">${esc(plain(r.t))}</span>
+      ${r.loc?`<span class="loc">${esc(r.loc)}</span>`:""}${trophyHTML(r.tr)}</button>
+      <div class="det">${r.d}${also.length?`<span class="also">Also ticks: ${also.join(" · ")}</span>`:""}</div></div>
+    <button class="exp" data-act="exp" data-key="${key}" aria-label="Details">${op?"–":"+"}</button></div>`;
+}
+
+// ——— completionist ———
+function matches(it, q){ if(!q) return true; q = q.toLowerCase();
+  return (it.name+" "+it.area+" "+plain(it.d)+" "+it.cat.title).toLowerCase().includes(q); }
+function compHTML(){
+  const lens = state.ui.lens, f = state.ui.fComp, q = state.ui.q.trim();
+  let h = `<p class="lede">Every collectible — grouped by trophy, or by chapter for clean-up sweeps. Ticks are shared with the Roadmap.</p>`;
+  h += `<div class="tools"><div class="seg" role="group" aria-label="Group by">
+      <button class="${lens==="trophy"?"on":""}" data-act="lens" data-v="trophy">By trophy</button>
+      <button class="${lens==="chapter"?"on":""}" data-act="lens" data-v="chapter">By chapter</button></div>
+    <button class="chip${f?" on":""}" data-act="fComp"><span class="dot"></span>Remaining only</button>
+    <input id="q" class="search" type="search" placeholder="Search items, bosses, places…" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Search"></div>`;
+  h += `<p class="note" style="margin:-4px 0 12px">Tap a heading to open it.</p><div id="ledger">${lens==="trophy" ? byTrophy(f,q) : byChapter(f,q)}</div>`;
+  return h;
+}
+function itemHTML(it, sec, showCat){
+  const key = sec+":"+it.id, on = isOn(it.id), op = open.has(key);
+  const flags = it.fl.split("").filter(x => FLAG[x] && x!=="A").map(x => `<span class="tag t-${FLAGCLS[x]}">${FLAG[x]}</span>`).join("");
+  const cat = showCat ? `<span class="tag t-C">${esc(catShort(it.cat))}</span>` : "";
+  return `<div class="row${on?" done":""}${op?" open":""}" data-id="${it.id}" data-key="${key}">
+    <button class="cb" data-act="check" data-id="${it.id}" role="checkbox" aria-checked="${on}" aria-label="${esc(it.name)}">${IC.check}</button>
+    <div class="main"><button class="line1" data-act="exp" data-key="${key}" aria-expanded="${op}">
+      ${cat}<span class="ttl">${esc(it.name)}</span>${flags}${showCat?"":`<span class="loc">${esc(shortCh(it.ch))} · ${esc(it.area)}</span>`}</button>
+      <div class="det">${esc(it.d)}</div></div>
+    <button class="exp" data-act="exp" data-key="${key}" aria-label="Details">${op?"–":"+"}</button></div>`;
+}
+function catShort(cat){
+  const m = {jl:"Lesser",jc:"Chief",jk:"King",jx:"Character",frogs:"Frog",loongs:"Loong",sp:"Spirit",sl:"Spell",cu:"Curio",ve:"Vessel",go:"Gourd",dr:"Drink",so:"Soak",fo:"Formula",sd:"Seed",md:"Meditation",pi:"Pill",we:"Weapon",ar:"Armor",vi:"Vine",ey:"Eyeball",sk:"Skandha"};
+  return m[cat.id] || cat.title;
+}
+function byTrophy(f,q){
+  let h = "", helperHead = false;
+  LEDGER.forEach(cat => {
+    const items = cat.items.map(t => ({...ITEM[t[0]], name:t[1], ch:String(t[2]), area:t[3], d:t[4], fl:t[5], cat}))
+      .filter(it => matches(it,q) && (!f || !isOn(it.id)));
+    if((f || q) && !items.length) return;
+    if(cat.helper && !helperHead){ h += `<div class="lede" style="margin-top:26px;letter-spacing:.16em;text-transform:uppercase;font-size:11px;color:var(--gold)">Supporting lists — not trophies themselves</div>`; helperHead = true; }
+    const closed = !q && !state.ui.col["o:c:"+cat.id];
+    const [d,t] = catCount(cat);
+    h += `<section id="c-${cat.id}"><button class="sechead${closed?" closed":""}" data-act="col" data-v="o:c:${cat.id}" aria-expanded="${!closed}">
+      <div><span class="k"><span class="caret">▾</span> ${cat.helper?"Helper":"Trophy"}</span><h3>${esc(cat.title)}</h3>
+      <span class="tro">${cat.helper?"":IC.cup}${esc(cat.trophy)}</span></div>
+      <span class="cnt${d===t?" full":""}" data-cnt="c:${cat.id}">${d}/${t}</span></button>`;
+    if(!closed){
+      if(cat.note) h += `<div class="note">${esc(cat.note)}</div>`;
+      h += items.length ? items.map(it => itemHTML(it, cat.id, false)).join("") : `<div class="empty">Nothing left here.</div>`;
+    }
+    h += `</section>`;
+  });
+  return h || `<div class="empty">No matches.</div>`;
+}
+function byChapter(f,q){
+  const groups = {}; CHAPTER_ORDER.forEach(c => groups[c] = []);
+  const seen = new Set();
+  LEDGER.forEach(cat => cat.items.forEach(t => {
+    if(seen.has(t[0])) return; seen.add(t[0]);
+    const it = {...ITEM[t[0]], cat};
+    (groups[it.ch] || (groups[it.ch] = [])).push(it);
+  }));
+  let h = "";
+  CHAPTER_ORDER.forEach(ch => {
+    let all = groups[ch]; if(!all || !all.length) return;
+    all = all.slice().sort((a,b) => (AREA_IX[a.area] ?? 999) - (AREA_IX[b.area] ?? 999));
+    const req = all.filter(it => !it.fl.includes("D"));
+    const d = req.filter(it => isOn(it.id)).length, t = req.length;
+    const items = all.filter(it => matches(it,q) && (!f || !isOn(it.id)));
+    if((f || q) && !items.length) return;
+    const closed = !q && !state.ui.col["o:g:"+ch];
+    h += `<section id="g-${ch}"><button class="sechead${closed?" closed":""}" data-act="col" data-v="o:g:${ch}" aria-expanded="${!closed}">
+      <div><span class="k"><span class="caret">▾</span> ${ch==="A" ? "Not needed" : ch==="S"||ch==="N" ? "Outside the chapters" : "Chapter "+ch}</span><h3>${esc(CHAPTERS[ch])}</h3></div>
+      <span class="cnt${d===t?" full":""}" data-cnt="g:${ch}">${d}/${t}</span></button>`;
+    if(!closed){
+      let lastArea = null;
+      items.forEach(it => {
+        if(it.area !== lastArea){ h += `<div class="note" style="margin-top:14px;color:var(--gold);letter-spacing:.06em">${esc(it.area)}</div>`; lastArea = it.area; }
+        h += itemHTML(it, "g"+ch, true);
+      });
+      if(!items.length) h += `<div class="empty">Nothing left here.</div>`;
+    }
+    h += `</section>`;
+  });
+  return h || `<div class="empty">No matches.</div>`;
+}
+
+// ————— targeted updates (no full re-render on tick) —————
+function refreshCounts(){
+  const k = counts();
+  setCnt("miss", `${k.miss}/${MISS_ROWS.length}`);
+  setCnt("road", `${k.road}/${ROWS.length}`);
+  setCnt("coll", `${k.coll}/${REQUIRED.size}`);
+  const bar = document.querySelector("[data-bar]"); if(bar) bar.style.width = Math.round(100*k.miss/MISS_ROWS.length)+"%";
+  CAMPAIGN.forEach(ph => { const [d,t] = phaseCount(ph); setCnt("p:"+ph.id, `${d}/${t}`, d===t);
+    const j = document.querySelector(`[data-jcnt="${ph.id}"]`); if(j){ j.querySelector(".n").textContent = `${d}/${t}`; j.classList.toggle("full", d===t); } });
+  LEDGER.forEach(cat => { const [d,t] = catCount(cat); setCnt("c:"+cat.id, `${d}/${t}`, d===t); });
+  if(state.ui.tab==="comp" && state.ui.lens==="chapter"){
+    CHAPTER_ORDER.forEach(ch => {
+      const el = document.querySelector(`[data-cnt="g:${ch}"]`); if(!el) return;
+      const ids = new Set(); LEDGER.forEach(cat => cat.items.forEach(t => { if(String(t[2])===ch && !t[5].includes("D")) ids.add(t[0]); }));
+      let d = 0; ids.forEach(id => { if(isOn(id)) d++; });
+      setCnt("g:"+ch, `${d}/${ids.size}`, d===ids.size);
+    });
+  }
+  const n = document.querySelector("[data-next]"); if(n) n.innerHTML = nextHTML();
+}
+function setCnt(key, txt, full){ document.querySelectorAll(`[data-cnt="${key}"]`).forEach(el => { el.textContent = txt; if(full!==undefined) el.classList.toggle("full", !!full); }); }
+function paint(id){
+  const on = isOn(id);
+  document.querySelectorAll(`.row[data-id="${id}"]`).forEach(el => { el.classList.toggle("done", on); const cb = el.querySelector(".cb"); if(cb) cb.setAttribute("aria-checked", on); });
+}
+function toggle(id){
+  const r = ROW[id];
+  const val = !isOn(id);
+  if(val) state.c[id] = 1; else delete state.c[id];
+  const touched = [id];
+  if(r && r.links){
+    const memo = "_l_"+id;
+    if(val){ const added = r.links.filter(l => !isOn(l)); added.forEach(l => state.c[l] = 1); if(added.length) state.c[memo] = added; touched.push(...added); }
+    else { const added = state.c[memo] || []; added.forEach(l => delete state.c[l]); delete state.c[memo]; touched.push(...added); }
+  }
+  save(); touched.forEach(paint); refreshCounts();
+}
+
+// ————— events —————
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]"); if(!b) return;
+  const a = b.dataset.act, v = b.dataset.v;
+  if(a === "check"){ toggle(b.dataset.id); return; }
+  if(a === "exp"){ const key = b.dataset.key; const row = b.closest(".row");
+    if(open.has(key)) open.delete(key); else open.add(key);
+    if(row){ const op = open.has(key); row.classList.toggle("open", op); row.querySelector(".exp").textContent = op ? "–" : "+"; row.querySelector(".line1").setAttribute("aria-expanded", op); }
+    return; }
+  if(a === "tab"){ state.ui.tab = v; save(); render(); window.scrollTo({top: document.querySelector(".tabs").offsetTop - 2}); return; }
+  if(a === "lens"){ state.ui.lens = v; save(); render(); return; }
+  if(a === "fRoad"){ state.ui.fRoad = !state.ui.fRoad; save(); render(); return; }
+  if(a === "fComp"){ state.ui.fComp = !state.ui.fComp; save(); render(); return; }
+  if(a === "col"){ state.ui.col[v] = !state.ui.col[v]; save(); render(); return; }
+  if(a === "gear"){ settingsOpen = !settingsOpen; resetArmed = 0; render(); if(settingsOpen) window.scrollTo({top:0}); return; }
+  if(a === "theme"){ state.ui.theme = v; save(); render(); return; }
+  if(a === "intro-ok"){ state.ui.intro = true; save(); render(); return; }
+  if(a === "intro-open"){ state.ui.intro = false; settingsOpen = false; save(); render(); window.scrollTo({top:0}); return; }
+  if(a === "reset"){
+    if(resetArmed){ state.c = {}; resetArmed = 0; save(); render(); return; }
+    resetArmed = 1; render(); setTimeout(() => { if(resetArmed){ resetArmed = 0; if(settingsOpen) render(); } }, 4000); return; }
+  if(a === "jump"){ const ph = v; if(state.ui.col["p:"+ph]){ state.ui.col["p:"+ph] = false; save(); render(); }
+    const el = document.getElementById("s-"+ph); if(el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
+  if(a === "next"){ const r = nextRow(); if(!r) return; const ph = PHASE_OF[r.id];
+    let rerender = false;
+    if(state.ui.col["p:"+ph.id]){ state.ui.col["p:"+ph.id] = false; rerender = true; }
+    if(state.ui.fRoad && r.tag!=="MISSABLE" && r.tag!=="WARNING"){ state.ui.fRoad = false; rerender = true; }
+    open.add("r:"+r.id); if(rerender){ save(); render(); }
+    const el = document.querySelector(`.row[data-key="r:${r.id}"]`);
+    if(el){ el.classList.add("open"); el.querySelector(".exp").textContent = "–"; el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); }
+    return; }
+});
+let qTimer = null;
+document.addEventListener("input", e => {
+  if(e.target.id !== "q") return;
+  state.ui.q = e.target.value;
+  clearTimeout(qTimer);
+  qTimer = setTimeout(() => {
+    const L = document.getElementById("ledger"); if(!L) return;
+    const f = state.ui.fComp, q = state.ui.q.trim();
+    L.innerHTML = state.ui.lens==="trophy" ? byTrophy(f,q) : byChapter(f,q);
+  }, 140);
+});
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if(state.ui.theme==="auto") applyTheme(); });
+
+render();
+
+// ————— offline (service worker) —————
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+}
+</script>
+</body>
+</html>
